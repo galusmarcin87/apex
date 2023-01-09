@@ -1,0 +1,66 @@
+.Invest-counter {
+  background-color: $SECONDARY;
+  color: #261018;
+  padding: 15px;
+
+  &__header {
+    font-weight: 600;
+    display: grid;
+    color: #261018;
+    grid-template-columns: auto auto;
+  }
+
+  &__source {
+    font-weight: 600;
+    color: #261018;
+  }
+
+  &__target {
+    font-weight: 600;
+    color: #261018;
+    text-align: right;
+  }
+
+  &__value-line-wrapper {
+    background: #826430;
+    border-radius: 5px;
+    height: 10px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: pxs;
+  }
+
+  &__value-line {
+    background-color: #261018;
+    border-radius: 5px;
+    height: 10px;
+    position: relative;
+    top: 0;
+    left: 0;;
+    transition: all 1s ease;
+  }
+
+  &__footer {
+    color: $COLOR-13;
+    display: grid;
+    grid-template-columns: auto auto;
+    font-weight: 600;
+
+    strong {
+      color: #261018;
+    }
+  }
+  &__body {
+    padding-top: 10px;
+
+    @media (max-width: $XS) {
+      display: block;
+    }
+
+    &__heading {
+      font-size: 15px;
+      color: #838383;
+      font-weight: 600;
+    }
+  }
+}

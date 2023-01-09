@@ -1,0 +1,245 @@
+.Contact {
+  padding-top: 0;
+  position: relative;
+  z-index: 2;
+  background-color: #fff;
+
+  &__remember-password {
+    text-decoration: underline !important;
+    font-size: 13px;
+  }
+
+  &__desc {
+    font-size: 18px;
+    line-height: 30px;
+    color: #261018;
+    font-weight: 600;
+    text-align: center;
+
+     @media (max-width: $MD) {
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: $SECONDARY;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    position: relative;
+
+    @media (max-width: $TABLET) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__header {
+    font-size: 30px;
+    line-height: 40px;
+    color: #050009;
+    font-weight: 700;
+    margin-bottom: 70px;
+
+    @media (max-width: $LG) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__map {
+    width: 100%;
+    margin-top: 50px;
+    height: 330px;
+
+    @media (max-width: $LG) {
+      height: 300px;
+      margin-bottom: 20px;
+    }
+
+    &__btn {
+      position: absolute;
+      bottom: 48px;
+      right: 70px;
+
+      @media (max-width: $MD) {
+        min-width: 100px !important;
+      }
+    }
+  }
+
+  &__map-wrapper {
+    position: relative;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    text-align: center;
+
+    .btn {
+      margin-top: -20px;
+      z-index: 9;
+      position: relative;
+    }
+
+     &::before {
+        content: '';
+        height: 300px;
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        right: -50px;
+        background: $PRIMARY;
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        height: 280px;
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        border: 10px solid $SECONDARY;
+        border-bottom: 0;
+        z-index: -1;
+      }
+  }
+}
+
+.Contact-form {
+  padding: 0 50px;
+  margin-top: 80px;
+  position: relative;
+
+      &--border {
+      form {
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        right: -50px;
+        bottom: -50px;
+        background: $PRIMARY;
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
+        border: 10px solid $SECONDARY;
+        z-index: -1;
+      }
+    }
+    }
+
+  form {
+    border: 1px solid #e1e1e1;
+    padding: 50px;
+    background: #ffffff;
+    position: relative;
+    margin-top: 80px;
+  }
+
+  h6 {
+    font-family: $FONT;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: $MD) {
+    padding: 20px;
+  }
+
+  &__form-group {
+    display: flex;
+    margin-bottom: 30px;
+
+    @media (max-width: $SM) {
+      display: block;
+    }
+  }
+
+  &__other-login {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    text-align: center;
+    color: #261018;
+  }
+
+  &__header {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 45px;
+    color: $SECONDARY;
+    text-align: center;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    column-gap: 50px;
+    row-gap: 20px;
+
+    .btn {
+      width: 68px;
+      display: grid;
+      align-items: center;
+      padding-left: 15px;
+      text-transform: none;
+      border: 1px solid #e1e1e1;
+      margin: 0 auto;
+
+      .fa {
+        font-size: 30px;
+        color: #3f2f5b;
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 0;
+
+    + label {
+      margin-left: 30px;
+
+      @media (max-width: $SM) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__submit {
+    min-width: 280px;
+    font-size: 13px !important;
+    text-transform: none !important;
+    margin-bottom: 0;
+    margin-top: 10px !important;
+  }
+
+  &__input {
+    font-size: 14px;
+    line-height: 60px !important;
+    color: #838383;
+    border-radius: $RADIUS;
+    padding: 0 15px !important;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    height: auto !important;
+  }
+}

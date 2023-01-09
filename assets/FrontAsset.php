@@ -23,11 +23,20 @@ class FrontAsset extends AssetBundle
     public $css = [
         'css/bootstrap.min.css',
         'css/font-awesome.min.css',
+        'css/magnific-popup.min.css',
+        'css/owl.carousel.min.css',
         'css/style.css',
         'less/front.less',
     ];
     public $js = [
-        'js/bootstrap.bundle.min.js',
+        'js/jquery.min.js',
+        'js/popper.min.js',
+        'js/bootstrap.min.js',
+        'js/jquery.magnific-popup.min.js',
+        'js/owl.carousel.min.js',
+        'js/jquery.viewportchecker.min.js',
+        'js/jquery.countTo.js',
+        'js/css3-animate-it.js',
         'js/scriprs.js',
     ];
     public $depends = [

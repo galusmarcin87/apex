@@ -1,0 +1,106 @@
+.Team {
+  --offset: -30px;
+  background-color: #fff !important;
+  padding-bottom: 70px;
+  padding-top: 0;
+
+  @media screen and (max-width: 1450px) {
+    --offset: 0;
+  }
+
+  .owl-item {
+    padding-top: 90px;
+  }
+
+  &__carousel {
+    .owl-nav {
+      text-align: center;
+      margin-top: 100px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      position: static !important;
+      transform: none !important;
+      margin: 0 10px;
+
+      .fa {
+        color: $PRIMARY !important;
+      }
+    }
+    .owl-prev {
+      border-bottom-left-radius: 20px;
+    }
+
+     .owl-next {
+      border-bottom-right-radius: 20px;
+    }
+  }
+
+  &__item {
+    background-color: #fff;
+    border: 1px solid #cdcdcd;
+    text-align: center;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 50px;
+    padding-top: 0;
+    position: relative;
+    font-size: 15px;
+    color: #838383;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      background: $SECONDARY;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    &__photo {
+      width: 160px !important;
+      height: 160px;
+      border-radius: 50%;
+      border: none;
+      background-color: #ddd;
+      display: inline-block !important;
+      margin-top: -80px;
+      margin-bottom: 25px;
+    }
+
+    &__name {
+      font-size: 22px;
+      line-height: 30px;
+      color: #261018;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    &__social-icons {
+      margin: 30px 0;
+      column-gap: 45px;
+
+      .fa {
+        color: #3f2f5b !important;
+        font-size: 30px !important;  
+      }
+
+      .fa-volume-control-phone {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  @include owlArrowsTwo(
+    $background: $SECONDARY,
+    $color: $SECONDARY,
+    $borderColor: #fff,
+    $offset: var(--offset)
+  );
+}

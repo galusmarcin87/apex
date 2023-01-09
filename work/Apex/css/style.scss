@@ -1,0 +1,380 @@
+@import './variables';
+@import './mixins';
+
+//layout
+@import './layout/top_pane';
+@import './layout/footer';
+@import './layout/slider';
+@import './layout/menu_top';
+@import './layout/form';
+@import './layout/section';
+@import './layout/grid';
+@import './layout/newsletter';
+@import './layout/projects';
+@import './layout/news';
+@import './layout/text';
+@import './layout/user_panel';
+@import './layout/contact';
+@import './layout/register';
+@import './layout/project';
+@import './layout/calculator';
+@import './layout/partners';
+@import './layout/map';
+@import './layout/team';
+@import './layout/video';
+
+//components
+@import './components/select';
+@import './components/social_icons';
+@import './components/scroll_up';
+@import './components/search_box';
+@import './components/contact_form_mini';
+@import './components/accordion';
+@import './components/card';
+@import './components/invest_counter';
+@import './components/count_down_timer';
+@import './components/cookies';
+@import './components/breadcrumbs';
+@import './components/pagination';
+@import './components/login_box';
+@import './components/gallery';
+@import './components/list_custom';
+@import './components/buttons';
+@import './components/_text_blocks';
+
+body {
+  font-family: $FONT;
+  font-size: 14px;
+  color: $PRIMARY;
+}
+
+a {
+  color: $PRIMARY;
+  text-decoration: none;
+
+  &:hover {
+    color: $PRIMARY;
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $PRIMARY;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #261018;
+  font-weight: 600;
+  margin-bottom: 100px;
+
+  @media (max-width: $MD) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: $XS) {
+    font-size: 1.8rem;
+  }
+}
+
+h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #261018;
+  font-weight: 600;
+
+  @media (max-width: $MD) {
+    font-size: 2.4em;
+  }
+
+  @media (max-width: $MD) {
+    font-size: 2.4em;
+  }
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 44px;
+  color: #261018;
+  font-weight: 600;
+  font-family: 'Montserrat';
+  filter: drop-shadow(22.981px 19.284px 15px rgba(39, 13, 23, 0.1));
+  margin-bottom: 50px;
+
+  @media (max-width: $MD) {
+    font-size: 1.4em;
+  }
+}
+
+h4 {
+  @media (max-width: $MD) {
+    font-size: 1.2em;
+  }
+}
+
+h5 {
+  color: $PRIMARY;
+  font-size: 30px;
+  line-height: 44px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.h6,
+h6 {
+  font-size: 1.1rem;
+  color: $SECONDARY;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.h6-normal {
+  font-family: $FONT;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.relative {
+  position: relative;
+}
+
+.lowercase {
+  text-transform: none !important;
+}
+
+p + .uppercase-header {
+  margin-top: 45px;
+}
+
+p.big {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+p.small {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.uppercase-header {
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $SECONDARY;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.Color {
+  &--secondary {
+    color: $SECONDARY;
+  }
+}
+
+.section-with-long-bg {
+  background-color: #f2f7f9;
+  position: relative;
+  padding: 70px 0;
+  padding-right: 70px;
+  margin-bottom: 35px;
+
+  @media (max-width: $MD) {
+    padding-right: 15px;
+
+    img {
+      margin-bottom: 20px;
+    }
+  }
+
+  &:before {
+    content: '';
+    background-color: inherit;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &--right {
+    padding-right: 15px;
+    padding-left: 70px;
+
+    &::before {
+      right: unset;
+      left: 100%;
+    }
+
+    @media (max-width: $MD) {
+      padding-left: 15px;
+    }
+  }
+}
+
+.big-text {
+  color: $PRIMARY;
+  font-size: 80px;
+  text-transform: uppercase;
+  color: #64253d;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  text-align: left;
+
+  p {
+    font-size: 18px;
+    line-height: 24px;
+    color: #838383;
+    font-weight: 400;
+    text-transform: none;
+    margin: 0;
+    margin-top: 15px;
+  }
+}
+
+.img-cover {
+  height: 100%;
+  object-fit: cover;
+
+  @media (max-width: $MD) {
+    display: none;
+  }
+}
+
+.image--shadow {
+  position: relative;
+  margin-bottom: 35px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  > img {
+    z-index: 0;
+    position: relative;
+    max-height: 320px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &::before {
+    content: '';
+    background-color: #f2f7f9;
+    position: absolute;
+    left: -30px;
+    bottom: -30px;
+    top: 30px;
+    right: 30px;
+    display: block;
+    z-index: 0;
+  }
+
+  &--right {
+    &::before {
+      content: '';
+      background-color: #f2f7f9;
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      top: 30px;
+      left: 30px;
+      display: block;
+      z-index: 0;
+    }
+  }
+}
+
+.white {
+  color: #fff !important;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.banner-wrapper {
+  padding: 60px;
+  padding-bottom: 0;
+  background-color: $PRIMARY;
+  margin-bottom: 30px;
+  position: relative;
+
+  @media (max-width: $MD) {
+    padding: 30px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -60px;
+    right: -60px;
+    height: 60px;
+    background-color: #ffffff;
+    z-index: 0;
+  }
+}
+
+.banner {
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 600;
+  padding-top: 90px;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: $RADIUS;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 17px;
+    border: 10px solid $SECONDARY;
+    border-bottom: 0;
+    border-radius: $RADIUS;
+  }
+
+  > div {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff;
+    font-weight: 400;
+    margin: 40px 0;
+    text-transform: none;
+  }
+
+  .btn {
+    margin-bottom: -35px;
+  }
+}
+
+.justify {
+  text-align: justify;
+}

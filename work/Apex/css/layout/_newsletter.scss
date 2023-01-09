@@ -1,0 +1,82 @@
+.Newsletter {
+  border: 10px solid $SECONDARY;
+  padding: 40px;
+
+  .Form__checkbox + label {
+    &:before {
+      background: transparent !important;
+      border: 1px solid #b7c3cf !important;
+    }
+
+    &:after {
+      color: $PRIMARY!important;
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+
+  &__inner {
+    margin: 20px auto;
+
+    .Form__group {
+      margin-bottom: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+    }
+
+    .Form__input {
+      background: #fff;
+      border-radius: $RADIUS;
+      border: none;
+      color: #838383;
+      padding: 39px;
+      font-size: 15px;
+      text-transform: none;
+      letter-spacing: 0px;
+      line-height: 36px;
+      font-weight: 500;
+      border-radius: 3px;
+      background-color: #ffffff;
+      border: 2px solid #b7c3cf;
+      border-bottom-right-radius: 20px;
+    }
+
+    .Form__label {
+      color: #838383;
+      left: 30px;
+      top: 50%;
+      font-size: 15px;
+      text-transform: none;
+      letter-spacing: 0px;
+      line-height: 36px;
+      font-weight: 500;
+      transform: translate(0, -50%);
+      text-transform: none;
+
+      @media (max-width: $SM) {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  .btn {
+    margin-top: 0;
+    min-width: 200px;
+  }
+
+  .Form__group {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

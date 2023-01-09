@@ -24,7 +24,7 @@ FrontAsset::register($this);
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
         <link
-                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap"
+                href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
                 rel="stylesheet"
         />
 
@@ -36,7 +36,7 @@ FrontAsset::register($this);
         <?php $this->head() ?>
 
     </head>
-    <body id="page_<?= Yii::$app->controller->id . '_' . Yii::$app->controller->action->id ?>">
+    <body id="page_<?= Yii::$app->controller->id . '_' . Yii::$app->controller->action->id ?>" style="background-color: #64253d;">
         <?php $this->beginBody() ?>
         <?= $this->render('header') ?>
         <?= Alert::widget() ?>
