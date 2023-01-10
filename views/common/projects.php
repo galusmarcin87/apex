@@ -8,7 +8,7 @@ use yii\web\View;
 use yii\widgets\ListView;
 
 $projectSearch = new \app\models\mgcms\db\ProjectSearch();
-$projectSearch->limit = 3;
+$projectSearch->limit = 6;
 
 
 $tabsStatuses = [Project::STATUS_ACTIVE];
@@ -36,11 +36,11 @@ $provider->pagination = false;
 $provider->sort->defaultOrder = [
     'order' => SORT_ASC,
 ];
-$provider->query->limit(3);
+$provider->query->limit(6);
 echo ListView::widget([
     'dataProvider' => $provider,
-    'options' => ['class' => 'row news__container projects'],
-    'itemOptions' => ['class' => 'col-sm-4 news__item'],
+    'options' => ['class' => 'Projects__sortable'],
+    'itemOptions' => ['class' => 'Projects__card item'],
     'emptyTextOptions' => ['class' => 'col-md-12'],
     'layout' => '{items}',
     'itemView' => function ($model, $key, $index, $widget) {

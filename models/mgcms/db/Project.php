@@ -51,6 +51,8 @@ use yii\helpers\Html;
  * @property integer $order
  * @property string $przelewy24_crc
  * @property integer $przelewy24_merchant_id
+ * @property string $link
+ * @property string $linkUrl
  *
  * @property \app\models\mgcms\db\Bonus[] $bonuses
  * @property \app\models\mgcms\db\Payment[] $payments
