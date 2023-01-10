@@ -3,42 +3,33 @@
 
 use app\components\mgcms\MgHelpers;
 use yii\web\View;
+use app\models\mgcms\db\Setting;
 
 
 ?>
-<section class="info">
+
+<section class="Section Section--light-background">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 info__content info__content--left">
-                <h2><?= MgHelpers::getSetting('HP - section 1 - 1 header ' . Yii::$app->language, false, 'HP - section 1 - 1 header') ?></h2>
-                <p>
-                    <?= MgHelpers::getSetting('HP - section 1 - 1 text ' . Yii::$app->language, false, 'HP - section 1 - 1 text') ?>
-                </p>
-                <div class="text-end">
-                    <a href="<?= MgHelpers::getSetting('HP - section 1 - 1 link url ' . Yii::$app->language, false, 'HP - section 1 - 1 link url ') ?>" class="button"><?= Yii::t('db', 'read more') ?></a>
+            <div class="col-xl-6">
+                <div class="uppercase-header">
+                    <?= MgHelpers::getSettingTypeText('HP - section 1 - 1 header ' . Yii::$app->language, false, 'HP - section 1 - 1 header') ?>
                 </div>
+                <h3 style="margin-bottom: 0;"><?= MgHelpers::getSettingTypeText('HP - section 1 - 2 header ' . Yii::$app->language, false, 'HP - section 1 - 2 header') ?></h3>
             </div>
-            <div class="col-md-6">
-                <img src="<?= MgHelpers::getSetting('HP - section 1 - 1 image ' . Yii::$app->language, false, '/img/inwestycja.jpg') ?>" alt=""/>
+            <div class="col-xl-6">
+                <img class="float-image" src="<?= MgHelpers::getSettingTypeText('HP - section 1 - image ' . Yii::$app->language, false, '/images/image_2.jpg') ?>"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-8">
+                <div class="white-box">
+                    <?= MgHelpers::getSettingTypeText('HP - section 1 - text ' . Yii::$app->language, true, 'HP - section 1 - text ') ?>
+                    <br/>
+                    <a href="<?= MgHelpers::getSettingTypeText('HP - section 1 - link ' . Yii::$app->language, true, '#') ?>" class="btn btn-secondary"><?= Yii::t('db', 'Find out more') ?></a>
+                </div>
             </div>
         </div>
     </div>
-</section>
-<section class="info">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="<?= MgHelpers::getSetting('HP - section 1 - 2 image ' . Yii::$app->language, false, '/img/kapital.jpg') ?>" alt="" />
-            </div>
-            <div class="col-md-6 info__content--right">
-                <h2><?= MgHelpers::getSetting('HP - section 1 - 2 header ' . Yii::$app->language, false, 'HP - section 1 - 2 header') ?></h2>
-                <p>
-                    <?= MgHelpers::getSetting('HP - section 1 - 2 text ' . Yii::$app->language, false, 'HP - section 1 - 2 text') ?>
-                </p>
-                <div class="text-end">
-                    <a href="<?= MgHelpers::getSetting('HP - section 1 - 2 link url ' . Yii::$app->language, false, 'HP - section 1 - 2 link url ') ?>" class="button"><?= Yii::t('db', 'read more') ?></a>
-                </div>
-            </div>
-        </div>
     </div>
 </section>

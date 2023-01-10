@@ -7,3 +7,5 @@ use app\models\mgcms\db\Project;
 
 ?>
 <?= $this->render('index/slider')?>
+
+<?= $this->render('index/section1')?>
