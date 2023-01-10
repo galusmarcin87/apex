@@ -25,3 +25,7 @@ use app\models\mgcms\db\Project;
         </div>
     </div>
 </section>
+
+<?= $this->render('index/section2') ?>
+
+<?= $this->render('index/section3') ?>
