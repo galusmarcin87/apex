@@ -15,6 +15,7 @@ use app\components\mgcms\MgHelpers;
  * @property integer $order
  * @property integer $file_id
  * @property integer $slider_id
+ * @property string $link
  *
  * @property \app\models\mgcms\db\File $file
  * @property \app\models\mgcms\db\Slider $slider
