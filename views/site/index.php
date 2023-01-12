@@ -33,3 +33,7 @@ use app\models\mgcms\db\Project;
 <?= $this->render('index/news') ?>
 
 <?= $this->render('index/faq') ?>
+
+<?= $this->render('/common/cooperateWith') ?>
+
+<?= $this->render('/common/newsletterForm') ?>
