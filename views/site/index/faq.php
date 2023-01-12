@@ -11,23 +11,23 @@ if (!$faq) {
 ?>
 
 
-<section class="Section animatedParent Section--light-background">
-    <div class="container fadeIn animated">
-        <h1 class="text-center"><?= Yii::t('db', 'FAQ'); ?></h1>
+<section class="Section Section--light-background" style="padding-bottom: 0;">
+    <div class="container">
+        <h1 class="text-center" style="margin-bottom: 70px;"><?= Yii::t('db', 'FAQ') ?></h1>
         <div
-                class="Accordion animatedParent"
+                class="Accordion"
                 id="accordion_custom"
                 role="tablist"
         >
             <div class="Accordion__tabs">
                 <? foreach ($faq->faqItems as $item): ?>
                     <?= $this->render('/faq/_index',['model' => $item])?>
-
                 <? endforeach; ?>
 
 
             </div>
-            <div class="Accordion__text"></div>
         </div>
     </div>
 </section>
+
+
