@@ -475,7 +475,7 @@ class SiteController extends \app\components\mgcms\MgCmsController
             return $this->redirect('/');
         }
     }
-    
+
 
     public function actionVerifyFiberIdCallback($hash)
     {
