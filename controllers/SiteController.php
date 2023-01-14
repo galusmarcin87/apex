@@ -475,14 +475,7 @@ class SiteController extends \app\components\mgcms\MgCmsController
             return $this->redirect('/');
         }
     }
-
-    public function beforeAction($action)
-    {
-        if ($action->id == 'verify-fiber-id-callback') {
-            $this->enableCsrfValidation = false;
-        }
-        return true;
-    }
+    
 
     public function actionVerifyFiberIdCallback($hash)
     {
