@@ -22,3 +22,6 @@ li {
 .alert-warning.in {
   opacity: 1;
 }
+.Project__file:hover {
+  color: white;
+}

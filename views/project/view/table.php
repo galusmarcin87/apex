@@ -2,61 +2,54 @@
 
 use app\models\mgcms\db\Project;
 use yii\web\View;
+use app\components\mgcms\MgHelpers;
 
 /* @var $this yii\web\View */
 /* @var $model Project */
 
 ?>
-<div class="col-md-4">
-    <div class="project__description">
-        <div class="project__description__space"></div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Pre-sale start') ?>:
-            </div>
-            <div><?= $model->date_presale_start ?></div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Pre-sale end') ?>:
-            </div>
-            <div><?= $model->date_presale_end ?></div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Crowdsale start') ?>:
-            </div>
-            <div><?= $model->date_crowdsale_start ?></div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Crowdsale end') ?>:
-            </div>
-            <div><?= $model->date_crowdsale_end ?></div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Crowdsale profit') ?>:
-            </div>
-            <div><?= $model->percentage * (int)$model->investition_time ?>%</div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Investition time') ?>:
-            </div>
-            <div><?= $model->investition_time ?></div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Date of profit realization') ?>:
-            </div>
-            <div><?= $model->date_realization_profit ?></div>
-        </div>
-        <div class="project__description__item">
-            <div class="project__description__item__header">
-                <?= Yii::t('db', 'Yearly profit') ?>:
-            </div>
-            <div><?= $model->percentage ?>%</div>
-        </div>
-    </div>
-</div>
+
+<ul class="List-custom__two">
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Value') ?>: </span>
+        <span>
+                  <strong> <?= MgHelpers::convertNumberToNiceString($model->value) ?></ </strong>
+                </span>
+    </li>
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Pre-sale start') ?>:</span>
+        <span>
+                  <strong> <?= $model->date_presale_start ?> </strong>
+                </span>
+    </li>
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Pre-sale end') ?>: </span>
+        <span>
+                  <strong> <?= $model->date_presale_end ?></strong>
+                </span>
+    </li>
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Crowdsale start') ?>:</span>
+        <span>
+                  <strong><?= $model->date_crowdsale_start ?></strong>
+                </span>
+    </li>
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Crowdsale end') ?>: </span>
+        <span>
+                  <strong> <?= $model->date_crowdsale_end ?> </strong>
+                </span>
+    </li>
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Crowdsale profit') ?>: </span>
+        <span>
+                  <strong> <?= $model->percentage * (int)$model->investition_time ?> </strong>
+                </span>
+    </li>
+    <li class="List-custom__two__item">
+        <span> <?= Yii::t('db', 'Pre-sale bonus') ?>: </span>
+        <span>
+                  <strong> <?= $model->percentage_presale_bonus ?></strong>
+                </span>
+    </li>
+</ul>

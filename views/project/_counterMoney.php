@@ -7,7 +7,7 @@ use yii\web\View;
 /* @var $model Project */
 /* @var $this yii\web\View */
 $model->language = Yii::$app->language;
-if(!$model->money_full){
+if (!$model->money_full) {
     return false;
 }
 ?>
@@ -16,17 +16,13 @@ if(!$model->money_full){
 <div class="Invest-counter">
     <div class="Invest-counter__header">
         <div class="Invest-counter__source">
-                        <span class="Invest-counter__source__value"
-                        ><?= $model->money ?> PLN</span
-                        >
-            (<span
-                    data-to="<?= round(($model->money / $model->money_full) * 100, 3) ?>"
-                    class="Invest-counter__source__percent"
-            >0</span
-            >%)
+            <div> <?= Yii::t('db', 'Collected') ?>:</div>
+            <span class="Invest-counter__source__value"><?= $model->money ?> $</span>
+            $
         </div>
-        <div class="Invest-counter__target">
-            cel: <?= MgHelpers::convertNumberToNiceString($model->money_full) ?> PLN
+        <div class="text-right">
+            <?= Yii::t('db', 'Target') ?>:
+            <div class="Invest-counter__target"><?= MgHelpers::convertNumberToNiceString($model->money_full) ?> $</div>
         </div>
     </div>
     <div class="Invest-counter__value-line-wrapper">
