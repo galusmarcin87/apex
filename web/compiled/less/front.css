@@ -25,3 +25,13 @@ li {
 .Project__file:hover {
   color: white;
 }
+#page_site_index {
+  background-color: #64253d;
+}
+.hidden {
+  display: none;
+}
+.pagination .page-item.active a {
+  background: #261018;
+  color: #fff;
+}

@@ -14,17 +14,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
+<?= $this->render('/common/breadcrumps') ?>
 
-<section class="news projects-wrapper">
+<section class="Section Projects Projects--white-top">
+    <div class="container">
+        <div class="Projects__header__wrapper">
+            <h4 class="Projects__header text-center"><?= Yii::t('db', 'Projects') ?></h4>
+            <div class="Select hidden">
+                <select class="Select__select">
+                    <option>- sortuj w -</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <?=
         ListView::widget([
             'dataProvider' => $dataProvider,
             'itemOptions' => [
-                'class' => 'col-sm-4 news__item'
+                'class' => 'Projects__card item'
             ],
             'options' => [
-                'class' => 'row news__container projects',
+                'class' => 'Projects__sortable',
             ],
             'layout' => '{items}',
             'itemView' => function ($model, $key, $index, $widget) {
@@ -34,34 +45,39 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ?>
 
-        <div class="text-center">
-            <?=
-            ListView::widget([
-                'dataProvider' => $dataProvider,
-                'layout' => '{pager}',
-                'pager' => [
-                    'firstPageLabel' => '&laquo;',
-                    'lastPageLabel' => '&raquo;',
-                    'prevPageLabel' => Yii::t('db', 'previous'),
-                    'nextPageLabel' => Yii::t('db', 'next'),
-
-
-                    // Customzing CSS class for pager link
-                    'linkOptions' => [
-                        'class' => 'page-link'
-                    ],
-                    'activePageCssClass' => 'active',
-                    'pageCssClass' => 'page-item',
-                    // Customzing CSS class for navigating link
-                    'prevPageCssClass' => 'page-item Pagination__arrow',
-                    'nextPageCssClass' => 'page-item Pagination__arrow',
-                    'firstPageCssClass' => 'page-item Pagination__arrow',
-                    'lastPageCssClass' => 'page-item Pagination__arrow',
-                ],
-            ])
-
-            ?>
-        </div>
-
     </div>
+    <div class="Pagination text-center">
+        <?=
+        ListView::widget([
+            'dataProvider' => $dataProvider,
+            'layout' => '{pager}',
+            'options' => [
+                'class' => 'Page navigation example',
+                'tag' => 'nav'
+            ],
+            'pager' => [
+                'firstPageLabel' => '&laquo;',
+                'lastPageLabel' => '&raquo;',
+                'prevPageLabel' => '&lt;',
+                'nextPageLabel' => '&gt;',
+                // Customzing CSS class for pager link
+                'linkOptions' => [
+                    'class' => 'page-link'
+                ],
+                'activePageCssClass' => 'active',
+                'pageCssClass' => 'page-item',
+                // Customzing CSS class for navigating link
+                'prevPageCssClass' => 'page-item ',
+                'nextPageCssClass' => 'page-item ',
+                'firstPageCssClass' => 'page-item ',
+                'lastPageCssClass' => 'page-item ',
+            ],
+        ])
+
+        ?>
+    </div>
+
 </section>
+
+
+<?= $this->render('/common/newsletterForm') ?>
