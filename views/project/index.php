@@ -68,9 +68,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'pageCssClass' => 'page-item',
                 // Customzing CSS class for navigating link
                 'prevPageCssClass' => 'page-item ',
-                'nextPageCssClass' => 'page-item ',
-                'firstPageCssClass' => 'page-item ',
-                'lastPageCssClass' => 'page-item ',
+                'nextPageCssClass' => 'page-item page-next',
+                'firstPageCssClass' => 'page-item page-first',
+                'lastPageCssClass' => 'page-item page-last',
             ],
         ])
 

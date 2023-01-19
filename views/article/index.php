@@ -24,16 +24,21 @@ $this->registerJs($search);
 
 <?= $this->render('/common/breadcrumps') ?>
 
-<section class="Section Section--grey News News--with-pagination">
+<section class="Section Projects Projects--white-top">
+    <div class="container">
+        <div class="Projects__header__wrapper">
+            <h4 class="Projects__header text-center"><?= $this->title ?></h4>
+        </div>
+    </div>
     <div class="container">
         <?=
         ListView::widget([
             'dataProvider' => $dataProvider,
             'itemOptions' => [
-                'class' => 'animatedParent'
+                'class' => 'Projects__card item'
             ],
             'options' => [
-                'class' => 'News__list',
+                'class' => 'Projects__sortable',
             ],
             'layout' => '{items}',
             'itemView' => function ($model, $key, $index, $widget) {
@@ -42,38 +47,37 @@ $this->registerJs($search);
         ])
 
         ?>
+    </div>
 
-        <div class="Pagination text-center">
-            <nav aria-label="Page navigation example">
-                <?=
-                ListView::widget([
-                    'dataProvider' => $dataProvider,
-                    'layout' => '{pager}',
-                    'pager' => [
-                        'firstPageLabel' => '&laquo;',
-                        'lastPageLabel' => '&raquo;',
-                        'prevPageLabel' => '&#8249;',
-                        'nextPageLabel' => '&#8250;',
+    <div class="Pagination text-center">
+        <?=
+        ListView::widget([
+            'dataProvider' => $dataProvider,
+            'layout' => '{pager}',
+            'options' => [
+                'class' => 'Page navigation example',
+                'tag' => 'nav'
+            ],
+            'pager' => [
+                'firstPageLabel' => '&laquo;',
+                'lastPageLabel' => '&raquo;',
+                'prevPageLabel' => '&lt;',
+                'nextPageLabel' => '&gt;',
+                // Customzing CSS class for pager link
+                'linkOptions' => [
+                    'class' => 'page-link'
+                ],
+                'activePageCssClass' => 'active',
+                'pageCssClass' => 'page-item',
+                // Customzing CSS class for navigating link
+                'prevPageCssClass' => 'page-item ',
+                'nextPageCssClass' => 'page-item page-next',
+                'firstPageCssClass' => 'page-item page-first',
+                'lastPageCssClass' => 'page-item page-last',
+            ],
+        ])
 
-
-                        // Customzing CSS class for pager link
-                        'linkOptions' => [
-                            'class' => 'page-link',
-                        ],
-                        'activePageCssClass' => 'page-link--active',
-                        'pageCssClass' => 'page-item',
-                        // Customzing CSS class for navigating link
-                        'prevPageCssClass' => 'page-item',
-                        'nextPageCssClass' => 'page-item',
-                        'firstPageCssClass' => 'page-item',
-                        'lastPageCssClass' => 'page-item',
-                    ],
-                ])
-
-                ?>
-            </nav>
-        </div>
-
+        ?>
     </div>
 </section>
 

@@ -39,9 +39,11 @@ class ArticleController extends \app\components\mgcms\MgCmsController
             }
         }
         $dataProvider = new ActiveDataProvider([
+            //'pagination' => ['pageSize' => '2'],
             'query' => Article::find()->where($categoryId ? ['category_id' => $categoryId] : [])
                 ->andWhere(['status' => Article::STATUS_ACTIVE])
                 ->orderBy('order ASC , created_on DESC'),
+
         ]);
 
         return $this->render('index', [

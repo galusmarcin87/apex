@@ -28,31 +28,9 @@ if(count($category->articles) === 0){
                 <? if ($index > 3) {
                     break;
                 } ?>
-                <div class="Projects__card item">
-                    <? if ($article->file && $article->file->isImage()): ?>
-                        <div class="Projects__card__image-wrapper">
-                            <img src="<?= $article->file->getImageSrc(437, 285) ?>" alt="<?= $article->title ?>"/>
-                        </div>
-                    <? endif; ?>
-
-                    <div class="Projects__card__header">
-                        <div class="Projects__card__heading">
-                            <?= $article->title ?>
-                        </div>
-                    </div>
-                    <div class="Projects__card__body">
-                        <p class="Project__card__body__text">
-                            <?= $article->excerpt ?>
-                        </p>
-                    </div>
-                    <div class="Projects__card__footer">
-                        <a href="<?= $article->linkUrl ?>" class="btn btn-secondary btn-secondary-outlined"><?= Yii::t('db', 'Read more') ?></a>
-                        <div class="Projects__date">
-                            <?= $article->created_on ?>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="Projects__card item">
+                <?= $this->render('/article/_index', ['model' => $article])?>
+            </div>
             <? endforeach ?>
 
 
