@@ -926,7 +926,7 @@ class MgHelpers extends \yii\base\Component
     static function convertNumberToNiceString($n)
     {
         // first strip any formatting;
-        $n = (0 + str_replace(",", "", $n));
+        $n = (int)str_replace(",", "", $n);
 
         // is this a number?
         if (!is_numeric($n)) return false;
