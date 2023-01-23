@@ -20,7 +20,7 @@ $menu = new NobleMenu(['name' => 'header_' . Yii::$app->language, 'loginLink' =>
             <div class="Menu-top__inner">
                 <div>
                     <a href="/">
-                        <img src="/images/logo_APEX_poziome.png" alt="" />
+                        <img src="/images/logo_APEX_poziome.png" alt=""/>
                     </a>
                 </div>
                 <div class="Menu-top__elements">
@@ -28,7 +28,8 @@ $menu = new NobleMenu(['name' => 'header_' . Yii::$app->language, 'loginLink' =>
                         <? foreach ($menu->getItems() as $item): ?>
                             <li>
                                 <? if (isset($item['url'])): ?>
-                                    <a href="<?= \yii\helpers\Url::to($item['url']) ?>" class="Menu-top__link   <? if (isset($item['active']) && $item['active']): ?>Menu-top__link--active<?endif;?>"
+                                    <a href="<?= \yii\helpers\Url::to($item['url']) ?>"
+                                       class="Menu-top__link   <? if (isset($item['active']) && $item['active']): ?>Menu-top__link--active<? endif; ?>"
                                     ><?= $item['label'] ?></a>
                                 <? endif ?>
                             </li>
@@ -37,27 +38,38 @@ $menu = new NobleMenu(['name' => 'header_' . Yii::$app->language, 'loginLink' =>
 
                     <? if (Yii::$app->user->isGuest): ?>
                         <a href="<?= yii\helpers\Url::to(['/site/login']) ?>" class="btn btn--transparent login"
-                        > <?= Yii::t('db', 'Login'); ?> </a>
+                        >
+                            <img src="/images/login.png"/>
+                            <?= Yii::t('db', 'Login'); ?> </a>
                         <a href="<?= yii\helpers\Url::to(['/site/register']) ?>" class="btn btn--transparent"
-                        > <?= Yii::t('db', 'Register'); ?> </a>
+                        >
+                            <img src="/images/login.png"/>
+                            <?= Yii::t('db', 'Register'); ?> </a>
                     <? else: ?>
-                        <a href="<?= yii\helpers\Url::to(['/site/account']) ?>" class="btn btn--transparent"
-                        > <?= Yii::t('db', 'My account'); ?> </a>
+                        <a href="<?= yii\helpers\Url::to(['/site/account']) ?>" class="btn btn--transparent login"
+                        >
+                            <img src="/images/login.png"/>
+                            <?= Yii::t('db', 'My account'); ?> </a>
                         <a href="javascript:submitLogoutForm()" class="btn btn--transparent"
-                        "> <?= Yii::t('db', 'Log out'); ?> </a>
+                        >
+                            <img src="/images/login.png"/>
+                            <?= Yii::t('db', 'Log out'); ?> </a>
                     <? endif; ?>
 
-                    <li class="nav-item dropdown languageSwitcher">
-                        <a class="nav-link dropdown-toggle" href="#" id="languageSwitcher" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown languageSwitcher hidden">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageSwitcher" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?= strtoupper(Yii::$app->language) ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="languageSwitcher">
                             <? foreach (Yii::$app->params['languagesDisplay'] as $language) : ?>
-                                <a class="dropdown-item" href="<?= yii\helpers\Url::to(['/', 'language' => $language]) ?>"><?= strtoupper($language) ?></a>
+                                <a class="dropdown-item"
+                                   href="<?= yii\helpers\Url::to(['/', 'language' => $language]) ?>"><?= strtoupper($language) ?></a>
                             <? endforeach ?>
                         </div>
                     </li>
 
+                    <a href="#" class="btn btn-primary"> EN </a>
 
                     <a href="#" class="Menu-top__toggle-btn">
                         <i class="fa fa-bars" aria-hidden="true"></i>
@@ -69,13 +81,12 @@ $menu = new NobleMenu(['name' => 'header_' . Yii::$app->language, 'loginLink' =>
 </div>
 
 
-
 <?= Html::beginForm(['/site/logout'], 'post', ['id' => 'logoutForm']) ?>
 <?= Html::endForm() ?>
 <script type="text/javascript">
-  function submitLogoutForm () {
-    $('#logoutForm').submit();
-  }
+    function submitLogoutForm () {
+        $('#logoutForm').submit();
+    }
 </script>
 
 
