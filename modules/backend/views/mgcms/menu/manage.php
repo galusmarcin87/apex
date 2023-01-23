@@ -12,8 +12,8 @@ $this->params['breadcrumbs'][] = $model->name;
 /* @var $model app\models\mgcms\db\Menu */
 /* @var $form app\components\mgcms\yii\ActiveForm */
 
-$this->registerJsFile('@web/js/jquery.nestable.js');
-$this->registerCssFile('@web/css/nestable.css');
+$this->registerJsFile('@web/js/cms/jquery.nestable.js');
+$this->registerCssFile('@web/css/cms/nestable.css');
 
 ?>
 
@@ -50,10 +50,10 @@ $this->registerCssFile('@web/css/nestable.css');
           <?php echo Html::label(Yii::t('app', 'URL'), 'url', ['class' => 'control-label']); ?>
           <?php echo Html::textInput('custom[url]', '', ['class' => 'form-control']); ?>
           <div class="help-block"></div>
-        </div>        
+        </div>
       </div>
     </div>
-  </div>      
+  </div>
 </div>
 
 
