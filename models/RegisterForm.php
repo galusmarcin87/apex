@@ -32,7 +32,7 @@ class RegisterForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password', 'passwordRepeat', 'firstName', 'surname'], 'required'],
+            [['username', 'password', 'passwordRepeat'], 'required'],
             [['password'], StrengthValidator::className(),
                 'min' => 8,
                 'digit' => 1,

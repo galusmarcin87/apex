@@ -41,7 +41,7 @@ $menu = new NobleMenu(['name' => 'header_' . Yii::$app->language, 'loginLink' =>
                         >
                             <img src="/images/login.png"/>
                             <?= Yii::t('db', 'Login'); ?> </a>
-                        <a href="<?= yii\helpers\Url::to(['/site/register']) ?>" class="btn btn--transparent"
+                        <a href="<?= yii\helpers\Url::to(['/site/login']) ?>" class="btn btn--transparent"
                         >
                             <img src="/images/login.png"/>
                             <?= Yii::t('db', 'Register'); ?> </a>

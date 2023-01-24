@@ -17,7 +17,7 @@ class ProjectHelper extends \yii\base\Component
         if ($withPlaceholders) {
             return [
                 'options' => [
-                    'class' => "Contact-form__label",
+                    'class' => "Contact-form__form-group form-group",
                 ],
                 'template' => "<label>{labelTitle}{input}</label>\n{error}",
                 'inputOptions' => ['class' => 'input'],
@@ -33,11 +33,11 @@ class ProjectHelper extends \yii\base\Component
 
 
                 'options' => [
-                    'class' => "Contact-form__label",
+                    'class' => "Contact-form__form-group form-group",
                     'tag' => 'div',
                 ],
-                'template' => "{beginWrapper}{input}\n\n{error}{endWrapper}",
-                'inputOptions' => ['class' => 'input'],
+                'template' => "{beginLabel}{input}\n\n{error}{endLabel}",
+                'inputOptions' => ['class' => 'Contact-form__input form-control'],
                 'labelOptions' => [
                     'class' => "Contact-form__label",
                 ],

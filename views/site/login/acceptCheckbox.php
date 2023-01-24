@@ -1,5 +1,5 @@
 <?$required = isset($required) ? $required : true;?>
-<div class="form-group text-left">
+<div class="Contact-form__form-group form-group text-left">
     <input type="hidden" name="RegisterForm[acceptTerms<?=$number?>]" value="0">
     <input
             name="RegisterForm[acceptTerms<?=$number?>]"
