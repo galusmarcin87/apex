@@ -7,7 +7,7 @@ use app\components\mgcms\MgHelpers;
     function initContactMap() {
         var myLatLng = { lat: <?=MgHelpers::getSetting('contact_map_lat',false, '52.249502')?>, lng: <?=MgHelpers::getSetting('contact_map_long',false, '21.0435739')?> };
         // Create a map object and specify the DOM element for display.
-        map = new google.maps.Map(document.getElementById('MAP'), {
+        map = new google.maps.Map(document.getElementById('map'), {
             center: myLatLng,
             zoom: 15,
             scrollwheel: false,
@@ -29,3 +29,4 @@ use app\components\mgcms\MgHelpers;
         defer
 ></script>
 
+<script src="https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js"></script>
