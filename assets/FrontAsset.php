@@ -29,7 +29,6 @@ class FrontAsset extends AssetBundle
         'less/front.less',
     ];
     public $js = [
-        'js/jquery.min.js',
         'js/popper.min.js',
         'js/bootstrap.min.js',
         'js/jquery.magnific-popup.min.js',
