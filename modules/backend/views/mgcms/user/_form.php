@@ -93,7 +93,7 @@ use yii\helpers\Url;
         <?= $form->field4md($model, 'phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('phone')]) ?>
         <?= $form->field4md($model, 'bank_no')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('bank_no')]) ?>
 
-        <div class="col-md-4 hidden">
+        <div class="col-md-4">
             <?= $this->render('/common/_fileModalChooser', [
                 'model' => $model,
                 'form' => $form]) ?>
@@ -126,16 +126,18 @@ use yii\helpers\Url;
         <div class="col-md-4">
             <?= $form->field($model, 'facebook')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('facebook')]) ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 hidden">
             <?= $form->field($model, 'twitter')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('twitter')]) ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 hidden">
             <?= $form->field($model, 'googleplus')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('googleplus')]) ?>
         </div>
         <div class="col-md-4">
+            <?= $form->field($model, 'linkedin')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('linkedin')]) ?>
+        </div>
+        <div class="col-md-4 hidden">
             <?= $form->field($model, 'tumblr')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('tumblr')]) ?>
         </div>
-
 
 
 
