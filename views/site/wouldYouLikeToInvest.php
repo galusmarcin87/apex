@@ -11,75 +11,88 @@ $this->title = Yii::t('db', 'Would you like to invest?');
 ?>
 
 <?= $this->render('/common/breadcrumps') ?>
-
-<section class="Section Section--white animatedParent">
+<section class="Section Section--white" style="padding-top: 30px">
     <div class="container">
         <div class="text-center">
-            <b style="color: #11375f"><?= MgHelpers::getSetting('wanna invest header 1 ' . Yii::$app->language, false, 'CHCESZ') ?>
-                </b>
-            <h1><?= MgHelpers::getSetting('wanna invest header 2 ' . Yii::$app->language, false, 'Zainwestować?') ?></h1>
+            <h6><?= MgHelpers::getSettingTypeText('wanna invest 1 header ' . Yii::$app->language, false, 'wanna invest 1 header ') ?></h6>
         </div>
-        <div class="section-with-long-bg">
+        <div style="margin-bottom: 25px">
             <div class="row">
-                <div class="col-lg-6">
-                    <img src="<?= MgHelpers::getSetting('wanna invest image', false, '/images/img2.jpg') ?>" alt=""/>
+                <div class="col-lg-6 text-right">
+                    <h5><?= MgHelpers::getSettingTypeText('wanna invest 1 box 1 header ' . Yii::$app->language, false, 'wanna invest 1 box 1 header') ?></h5>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 1 box 1 text ' . Yii::$app->language, true, '<p>wanna invest 1 box 1 text</p>') ?>
                 </div>
                 <div class="col-lg-6">
-                    <div class="uppercase-header"><?= MgHelpers::getSetting('wanna invest section 1 header 1 ' . Yii::$app->language, false, 'Innowacyjne rozwiązanie') ?></div>
-                    <p>
-                        <?= MgHelpers::getSetting('wanna invest section 1 text 1 ' . Yii::$app->language, false, 'wanna invest section 1 text 1') ?>
-                    </p>
-                    <div class="uppercase-header"><?= MgHelpers::getSetting('wanna invest section 1 header 2 ' . Yii::$app->language, false, 'BEZPIECZNE INWESTOWANIE') ?></div>
-                    <p>
-                        <?= MgHelpers::getSetting('wanna invest section 1 text 2 ' . Yii::$app->language, false, 'wanna invest section 1 text 2') ?>
-                    </p>
+                    <img src="<?= MgHelpers::getSettingTypeText('wanna invest 1 box 1 image ' . Yii::$app->language, false, '/images/img2.jpg') ?>"
+                         alt=""/>
                 </div>
             </div>
         </div>
-        <h6 class="h6-normal">
-            <?= MgHelpers::getSetting('wanna invest section 2 line 1 ' . Yii::$app->language, false, 'wanna invest section 2 line 1') ?>
-        </h6>
+        <div style="margin-bottom: 25px">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="<?= MgHelpers::getSettingTypeText('wanna invest 1 box 2 image ' . Yii::$app->language, false, '/images/img3.jpg') ?>"
+                         alt=""/>
+                </div>
+                <div class="col-lg-6">
+                    <h5><?= MgHelpers::getSettingTypeText('wanna invest 1 box 2 header ' . Yii::$app->language, false, 'wanna invest 1 box 2 header') ?></h5>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 1 box 2 text ' . Yii::$app->language, true, '<p>wanna invest 1 box 2 text</p>') ?>
 
-        <p>
-            <?= MgHelpers::getSetting('wanna invest section 2 line 2 ' . Yii::$app->language, false, 'wanna invest section 2 line 2') ?>
-        </p>
+                </div>
+            </div>
+        </div>
+        <h5><?= MgHelpers::getSettingTypeText('wanna invest 2 header ' . Yii::$app->language, false, 'wanna invest 2 header') ?></h5>
+        <?= MgHelpers::getSettingTypeText('wanna invest 2 text ' . Yii::$app->language, true, 'wanna invest 2 text') ?>
     </div>
     <div class="container fadeIn animated">
-        <div class="text-center">
-            <b style="color: #11375f"><?= MgHelpers::getSetting('wanna invest section 3 header 1 ' . Yii::$app->language, false, 'JAK') ?></b>
-            <h1><?= MgHelpers::getSetting('wanna invest section 3 header 2 ' . Yii::$app->language, false, 'inwestować') ?></h1>
+        <div class="text-left">
+            <h5><?= MgHelpers::getSettingTypeText('wanna invest 3 header ' . Yii::$app->language, false, 'wanna invest 3 header') ?></h5>
         </div>
         <div class="List-grid List-grid--numbers">
             <div class="List-grid__item">
                 <h6 class="List-grid__item__header">
-                    <?= MgHelpers::getSetting('wanna invest section 3 column 1 header ' . Yii::$app->language, false, 'Wybierz <br/>
-                    inwestycję') ?>
-
+                    <?= MgHelpers::getSettingTypeText('wanna invest 3 box 1 header ' . Yii::$app->language, false, 'wanna invest 3 box 1 header') ?>
                 </h6>
                 <p class="List-grid__item__content">
-                    <?= MgHelpers::getSetting('wanna invest section 3 column 1 text ' . Yii::$app->language, false, 'wanna invest section 3 column 1 text') ?>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 3 box 1 text ' . Yii::$app->language, false, 'wanna invest 3 box 1 text') ?>
                 </p>
             </div>
             <div class="List-grid__item">
                 <h6 class="List-grid__item__header">
-                    <?= MgHelpers::getSetting('wanna invest section 3 column 2 header ' . Yii::$app->language, false, 'Wybierz <br/>
-                    inwestycję') ?>
-
+                    <?= MgHelpers::getSettingTypeText('wanna invest 3 box 2 header ' . Yii::$app->language, false, 'wanna invest 3 box 2 header') ?>
                 </h6>
                 <p class="List-grid__item__content">
-                    <?= MgHelpers::getSetting('wanna invest section 3 column 2 text ' . Yii::$app->language, false, 'wanna invest section 3 column 2 text') ?>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 3 box 2 text ' . Yii::$app->language, false, 'wanna invest 3 box 2 text') ?>
                 </p>
             </div>
             <div class="List-grid__item">
                 <h6 class="List-grid__item__header">
-                    <?= MgHelpers::getSetting('wanna invest section 3 column 3 header ' . Yii::$app->language, false, 'Wybierz <br/>
-                    inwestycję') ?>
-
+                    <?= MgHelpers::getSettingTypeText('wanna invest 3 box 3 header ' . Yii::$app->language, false, 'wanna invest 3 box 3 header') ?>
                 </h6>
                 <p class="List-grid__item__content">
-                    <?= MgHelpers::getSetting('wanna invest section 3 column 3 text ' . Yii::$app->language, false, 'wanna invest section 3 column 3 text') ?>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 3 box 3 text ' . Yii::$app->language, false, 'wanna invest 3 box 3 text') ?>
                 </p>
             </div>
         </div>
     </div>
 </section>
+<section style="padding-bottom: 100px">
+    <div class="container">
+        <div class="banner-wrapper">
+            <div
+                    class="banner"
+                    style="background-image: url(<?= MgHelpers::getSettingTypeText('wanna invest 4 image ' . Yii::$app->language, false, '/images/banner_6.jpg') ?>)"
+            >
+                <div>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 4 header ' . Yii::$app->language, false, 'wanna invest 4 header') ?>
+                    <?= MgHelpers::getSettingTypeText('wanna invest 4 text ' . Yii::$app->language, true, '<p>wanna invest 4 text</p>') ?>
+                    <a class="btn btn-secondary" href="<?= \yii\helpers\Url::to('/project/index') ?>">
+                        <?= Yii::t('db', 'See projects') ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?= $this->render('/common/newsletterForm')?>

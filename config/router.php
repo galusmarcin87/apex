@@ -67,7 +67,7 @@ return [
             'class' => 'geertw\Yii2\TranslatableUrlRule\TranslatableUrlRule',
             'patterns' => [
                 'en' => '/would-you-like-to-invest',
-                'pl' => '/chcesz-zainwestowac',
+                'pl' => '/dla-inwestora',
             ],
             'route' => '/site/would-you-like-to-invest',
         ],
