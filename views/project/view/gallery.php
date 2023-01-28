@@ -8,24 +8,22 @@ use app\components\mgcms\MgHelpers;
 use yii\web\View;
 use yii\helpers\Url;
 
-if (count($model->files) == 0) {
-    return false;
-}
 ?>
 
-
 <div class="Project__info">
-    <div class="Project__gallery__photo">
-        <img
-                src="<?= $model->files[0]->getImageSrc(685, 424) ?>"
-                class="Project__photo"
-        />
-        <a href="<?= $model->files[0]->getImageSrc() ?>" class="zoom"></a>
-    </div>
+    <? if ($model->file && $model->file->isImage()): ?>
+        <div class="Project__gallery__photo">
+            <img
+                    src="<?= $model->file->getImageSrc(685, 424) ?>?>"
+                    class="Project__photo"
+            />
+            <a href="<?= $model->file->getImageSrc() ?>" class="zoom"></a>
+        </div>
+    <? endif ?>
     <div class="Project__slider">
         <div class="owl-carousel Gallery__wrapper">
             <? foreach ($model->files as $file): ?>
-                <? if ($file->isImage()):?>
+                <? if ($file->isImage()): ?>
                     <div class="col-sm-4">
                         <a
                                 href="<?= $file->getImageSrc() ?>"
