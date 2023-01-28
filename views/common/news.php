@@ -18,10 +18,11 @@ $dataProvider = new ActiveDataProvider([
         ->orderBy('order ASC , created_on DESC'),
 ]);
 
-$showAllButton = isset($showAllButton) ? $showAllButton : true;
+$showWrapper = isset($showWrapper) ? $showWrapper : true;
+
 ?>
 
-
+<?if($showWrapper):?>
 <section
         class="Section Projects Projects--list animatedParent Projects--lightBg"
 >
@@ -30,6 +31,7 @@ $showAllButton = isset($showAllButton) ? $showAllButton : true;
             <h1 class="text-center"><?= Yii::t('db', 'News'); ?></h1>
         </div>
     </div>
+    <?endif;?>
     <div class="container fadeIn animated">
         <?=
         ListView::widget([
@@ -48,9 +50,10 @@ $showAllButton = isset($showAllButton) ? $showAllButton : true;
 
         ?>
     </div>
+    <?if($showWrapper):?>
     <div class="text-center">
         <a href="<?= $category->linkUrl ?>" class="btn btn-success btn--medium"> <?= Yii::t('db', 'See all'); ?></a>
     </div>
 </section>
-
+<?endif;?>
 
