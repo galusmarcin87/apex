@@ -17,7 +17,7 @@ if (!$model->money_full) {
     <div class="Invest-counter__header">
         <div class="Invest-counter__source">
             <div> <?= Yii::t('db', 'Collected') ?>:</div>
-            <span class="Invest-counter__source__value"><?= $model->money ?> $</span>
+            <span class="Invest-counter__source__value"><?= MgHelpers::convertNumberToNiceString($model->money) ?> $</span>
             $
         </div>
         <div class="text-right">

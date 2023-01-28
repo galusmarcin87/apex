@@ -4,7 +4,7 @@
 
 /* @var $model app\models\LoginForm */
 
-/* @var $model app\models\RegisterForm */
+/* @var $modelRegister app\models\RegisterForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
@@ -116,6 +116,10 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false);
                 <?= $form->field($modelRegister, 'password')->passwordInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('password')]) ?>
                 <?= $form->field($modelRegister, 'passwordRepeat')->passwordInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('passwordRepeat')]) ?>
 
+                <?= $form->field($modelRegister, 'firstName')->textInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('firstName')]) ?>
+                <?= $form->field($modelRegister, 'surname')->textInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('surname')]) ?>
+                <?= $form->field($modelRegister, 'city')->textInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('city')]) ?>
+                <?= $form->field($modelRegister, 'phone')->textInput(['required' => true, 'placeholder' => $modelRegister->getAttributeLabel('phone')]) ?>
                 <?= $this->render('login/acceptCheckbox',['number' => '','form'=> $form, 'modelRegister' => $modelRegister])?>
 
 

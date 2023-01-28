@@ -23,6 +23,7 @@ class RegisterForm extends Model
     public $firstName;
     public $surname;
     public $phone;
+    public $city;
 
 
     /**
@@ -32,7 +33,7 @@ class RegisterForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password', 'passwordRepeat'], 'required'],
+            [['username', 'password', 'passwordRepeat', 'firstName', 'surname', 'city', 'phone'], 'required'],
             [['password'], StrengthValidator::className(),
                 'min' => 8,
                 'digit' => 1,
@@ -56,6 +57,7 @@ class RegisterForm extends Model
             'firstName' => Yii::t('db', 'First name'),
             'surname' => Yii::t('db', 'Surname'),
             'phone' => Yii::t('db', 'Phone'),
+            'city' => Yii::t('db', 'City'),
             'passwordRepeat' => Yii::t('db', 'Repeat password'),
             'acceptTerms' => MgHelpers::getSettingTranslated('register_terms_label1', 'Akceptuje <a href="#">regulamin</a> serwisu i wyrażamzgode...'),
             'acceptTerms2' => MgHelpers::getSettingTranslated('register_terms_label2', 'Akceptuje <a href="#">regulamin</a> serwisu i wyrażamzgode...'),
@@ -79,6 +81,7 @@ class RegisterForm extends Model
             $user->first_name = $this->firstName;
             $user->last_name = $this->surname;
             $user->phone = $this->phone;
+            $user->city = $this->city;
             $user->acceptTerms5 = (int)$this->acceptTerms5;
             $user->acceptTerms6 = (int)$this->acceptTerms6;
             $saved = $user->save();
