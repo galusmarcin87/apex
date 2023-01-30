@@ -44,3 +44,23 @@ li {
 #page_article_view .Section strong {
   color: #261018;
 }
+.nav-tabs li {
+  background: #64253d;
+  padding: 30px;
+}
+.nav-tabs li.active {
+  font-weight: bold;
+}
+.nav-tabs li a {
+  color: white;
+}
+#myTokens .desc {
+  padding: 5px 0;
+}
+#myTokens .kv-table-header {
+  background: #64253d;
+  color: white;
+}
+#myTokens .kv-table-header a {
+  color: white;
+}

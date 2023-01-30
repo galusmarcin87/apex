@@ -24,17 +24,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false);
 
         //          echo $form->errorSummary($model);
         ?>
-        <p><span style="font-size: 10pt;"><span
-                        style="color: #ff0000; font-size: 12pt;"><strong>WERYFIKACJA:</strong></span><br/>Klikając w poniższy link, zostaniesz przeniesiony do Fiber ID w celu weryfikacji swojej tożsamości.</span>&nbsp;<span
-                    style="font-size: 10pt;">Tam wypełnisz swoje dane osobowe i adresowe.&nbsp;<br/></span><span
-                    style="font-size: 10pt;">Na koniec zostaniesz przeniesiony do swojego banku, celem potwierdzenia poprawności wprowadzonych danych.&nbsp;<br/><span
-                        style="color: #ff0000; font-size: 12pt;"><strong>UWAGA:</strong></span> <span
-                        style="color: #ff0000;"><strong>ZAZNACZ JEDEN RACHUNEK BANKOWY, NA KT&Oacute;RY OTRZYMASZ ZWROT POŻYCZKI.</strong></span><br/></span><span
-                    style="font-size: 10pt;">Poniższa weryfikacja jest konieczna, aby m&oacute;c inwestować w projekty na platformie piesto.io&nbsp;</span>
-        </p>
-        <p><span style="font-size: 10pt;">Weryfikacji dokonujesz jednorazowo, ale gdybyś zmienił rachunek bankowy - możesz się zweryfikować ponownie, w celu pobrania nowego numeru Twojego rachunku.</span>
-        </p>
-
+        <?= MgHelpers::getSettingTypeText('my account my data text',true,'<p>my account my data text</p>')?>
 
         <div class="row">
 
@@ -71,7 +61,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false);
 
         <div class="row bottom10">
             <div class="col-md-3 offset-3">
-                <button type="submit" class="button"
+                <button type="submit" class="btn btn-primary"
                         onclick="return confirm('<?= Yii::t('db', 'Are you sure to make changes?') ?>')">
                     <?= Yii::t('db', 'Save changes') ?>
                 </button>

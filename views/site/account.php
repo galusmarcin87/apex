@@ -36,13 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     ]),
                     'options' => ['id' => 'myAccount'],
                 ],
-                [
-                    'label' => MgHelpers::getSettingTranslated('account_tab3', 'Account settings'),
-                    'content' => $this->render('account/settings', [
-                        'model' => $model
-                    ]),
-                    'options' => ['id' => 'settings'],
-                ],
+//                [
+//                    'label' => MgHelpers::getSettingTranslated('account_tab3', 'Account settings'),
+//                    'content' => $this->render('account/settings', [
+//                        'model' => $model
+//                    ]),
+//                    'options' => ['id' => 'settings'],
+//                ],
             ];
 
             echo Tabs::widget([
