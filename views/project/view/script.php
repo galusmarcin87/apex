@@ -25,7 +25,7 @@ if(!$model->gps_lat || !$model->gps_long){
             map: map,
             position: myLatLng,
             title: "",
-            icon: "/images/point.png"
+            //icon: "/images/point.png"
         });
     }
 </script>
