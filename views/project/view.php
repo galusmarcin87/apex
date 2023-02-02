@@ -140,6 +140,7 @@ $index = 0;
     </div>
 </section>
 
+<?= $this->render('view/script', ['model' => $model])?>
 
 <section
         class="Section Projects Section--light-background"

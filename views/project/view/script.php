@@ -4,7 +4,9 @@ use yii\web\View;
 
 /* @var $this yii\web\View */
 /* @var $model Project */
-
+if(!$model->gps_lat || !$model->gps_long){
+    return false;
+}
 ?>
 <script>
     var map;
