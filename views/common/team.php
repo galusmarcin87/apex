@@ -42,9 +42,9 @@ if (sizeof($teamUsers) == 0) {
                     <? if ($teamUser->email): ?>
                         <div class="text-center">
                             <a
-                                    href="mailto:<? $teamUser->email ?>"
+                                    href="mailto:<?= $teamUser->email ?>"
                                     class="btn btn-secondary btn-secondary-outlined btn-block"
-                            ><? $teamUser->email ?></a
+                            ><?= $teamUser->email ?></a
                             >
                         </div>
                     <? endif ?>
