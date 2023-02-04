@@ -16,16 +16,20 @@ class ProjectHelper extends \yii\base\Component
     {
         if ($withPlaceholders) {
             return [
+
+
                 'options' => [
                     'class' => "Contact-form__form-group form-group",
+                    'tag' => 'div',
                 ],
-                'template' => "<label>{labelTitle}{input}</label>\n{error}",
-                'inputOptions' => ['class' => 'input'],
+                'template' => "{beginLabel}{labelTitle}{input}\n\n{error}{endLabel}",
+                'inputOptions' => ['class' => 'Contact-form__input form-control'],
                 'labelOptions' => [
-                    'class' => "Form__label",
+                    'class' => "Contact-form__label",
                 ],
                 'wrapperOptions' => [
-                    'class' => "Form__group  form-group",
+                    'class' => "Contact-form__label",
+
                 ]
             ];
         } else {

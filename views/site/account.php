@@ -14,11 +14,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 ?>
-
-<section class="login-register dashboard">
+<section class="Projects--white-top">
     <div class="container">
-        <h2><?= Yii::t('db', 'Investor account') ?></h2>
+        <div class="Projects__header__wrapper">
+            <h4 class="Projects__header text-center"><?= Yii::t('db', 'Investor account') ?></h4>
+        </div>
+    </div>
+</section>
 
+<section class="login-register dashboard ">
+    <div class="container">
         <div class="contact__form">
             <?
             $tabsItems = [

@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 use app\components\mgcms\MgHelpers;
 use yii\bootstrap\Tabs;
 
-$fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false);
+$fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
 
 ?>
 
@@ -27,8 +27,12 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false);
         <?= MgHelpers::getSettingTypeText('my account my data text',true,'<p>my account my data text</p>')?>
 
         <div class="row">
+            <div class="col-md-6">
+                <legend><?= Yii::t('db', 'Personal data') ?></legend>
+                <?= $this->render('../fillAccount/_personForm', ['form' => $form, 'model' => $model]) ?>
+            </div>
 
-            <?= $this->render('../fillAccount/_personForm', ['form' => $form, 'model' => $model]) ?>
+
 
             <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'citizenship', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
             <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'id_document_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>

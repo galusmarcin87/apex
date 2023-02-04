@@ -64,3 +64,9 @@ li {
 #myTokens .kv-table-header a {
   color: white;
 }
+#page_site_account .Projects--white-top {
+  background-color: white;
+}
+#page_site_account .Projects--white-top::before {
+  display: none;
+}
