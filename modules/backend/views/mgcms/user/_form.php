@@ -81,6 +81,14 @@ use yii\helpers\Url;
 
         </div>
         <div class="col-md-4">
+            <?= $form->field($model, 'county')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('county')]) ?>
+
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'district')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('district')]) ?>
+
+        </div>
+        <div class="col-md-4">
             <?= $form->field($model, 'address')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('address')]) ?>
 
         </div>
@@ -88,10 +96,12 @@ use yii\helpers\Url;
 
 
         <?= $form->field4md($model, 'citizenship')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('citizenship')]) ?>
-        <?= $form->field12md($model, 'id_document_no')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('id_document_no')]) ?>
+        <?= $form->field4md($model, 'id_document_no')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('id_document_no')]) ?>
         <?= $form->field4md($model, 'pesel')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('pesel')]) ?>
         <?= $form->field4md($model, 'phone')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('phone')]) ?>
         <?= $form->field4md($model, 'bank_no')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('bank_no')]) ?>
+        <?= $form->field4md($model, 'bank')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('bank')]) ?>
+        <?= $form->field4md($model, 'tax_office')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('tax_office')]) ?>
 
         <div class="col-md-4">
             <?= $this->render('/common/_fileModalChooser', [
@@ -115,7 +125,6 @@ use yii\helpers\Url;
         <?= $form->field4md($model, 'cor_street')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('cor_street')]) ?>
         <?= $form->field4md($model, 'cor_house_no')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('cor_house_no')]) ?>
         <?= $form->field4md($model, 'cor_flat_no')->textInput(['maxlength' => true, 'placeholder' => $model->getAttributeLabel('cor_citycor_flat_no')]) ?>
-
     </div>
 
 

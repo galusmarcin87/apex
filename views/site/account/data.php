@@ -24,42 +24,41 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
 
         //          echo $form->errorSummary($model);
         ?>
-        <?= MgHelpers::getSettingTypeText('my account my data text',true,'<p>my account my data text</p>')?>
+        <?= MgHelpers::getSettingTypeText('my account my data text', true, '<p>my account my data text</p>') ?>
 
         <div class="row">
             <div class="col-md-6">
                 <legend><?= Yii::t('db', 'Personal data') ?></legend>
                 <?= $this->render('../fillAccount/_personForm', ['form' => $form, 'model' => $model]) ?>
+                <legend class="p-3"><?= Yii::t('db', 'Addres for corespondence') ?>
+                    <button type="button" class="btn btn-primary pull-right" id="copyToCorrespondence"><?= Yii::t('db', 'Copy') ?></button>
+                </legend>
+
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_postcode', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_city', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_street', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_house_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_flat_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+            </div>
+
+            <div class="col-md-6">
+                <legend><?= Yii::t('db', 'Contact data') ?></legend>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'phone', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'email', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+
+                <legend><?= Yii::t('db', 'Residence address') ?></legend>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'postcode', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'city', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'street', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'house_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'flat_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'voivodeship', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'county', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'district', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+
             </div>
 
 
-
-            <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'citizenship', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-            <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'id_document_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-            <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'pesel', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-            <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'phone', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-            <?= $this->render('../fillAccount/_field', ['width' => 3, 'form' => $form, 'model' => $model, 'attribute' => 'bank_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-
-
-        </div>
-
-        <div class="row top10">
-            <div class="Form__group form-group text-left col-md-12">
-                <input type="hidden" name="User[is_corespondence]" value="0">
-                <input
-                        name="User[is_corespondence]"
-                        class="Form__checkbox"
-                        type="checkbox"
-                        id="is_corespondence"
-                        value="1"
-                    <?= $model->is_corespondence ? 'checked' : '' ?>
-                />
-                <label for="is_corespondence"> <?= Yii::t('db', 'Another address for correspondence'); ?> </label>
-            </div>
-        </div>
-
-        <div class="row isCorrespondenceWrapper <?= $model->is_corespondence ? '' : 'd-none' ?>">
-            <?= $this->render('../fillAccount/_corespondenceForm', ['form' => $form, 'model' => $model]) ?>
         </div>
 
 
@@ -75,20 +74,14 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
         <?php ActiveForm::end(); ?>
     </div>
 </section>
-<script>
-    $('#is_corespondence').change(function (e) {
-        if ($(this).is(':checked')) {
-            $('.isCorrespondenceWrapper').removeClass('d-none');
-            $('.isCorrespondenceWrapper input').each(function () {
-                $(this).attr('required', 1);
-            });
-        }
-        else {
-            $('.isCorrespondenceWrapper').addClass('d-none');
-            $('.isCorrespondenceWrapper input').each(function () {
-                $(this).attr('required', false);
-            });
-        }
-    });
-    $('#is_corespondence').change();
+
+<script type="text/javascript">
+    function copyToCorrespondence(){
+
+        const fields = ['postcode','city','street','house_no','flat_no'];
+        fields.forEach( (field)=>{
+            $('#user-cor_'+field).val($('#user-'+field).val());
+        });
+    }
+    $('#copyToCorrespondence').on('click',copyToCorrespondence);
 </script>
