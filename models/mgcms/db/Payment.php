@@ -22,6 +22,15 @@ use app\components\mgcms\MgHelpers;
  * @property string $ethereum_buy_date
  * @property string $market
  *
+ * @property boolean $is_company
+ * @property string $tax_id_type
+ * @property string $pit_transfer_form
+ * @property string $notarial_act_city
+ * @property string $notarial_act_day
+ * @property string $notarial_act_hour
+ * @property string $notarial_act_day2
+ * @property string $notarial_act_hour2
+ *
  * @property \app\models\mgcms\db\Project $project
  * @property \app\models\mgcms\db\User $user
  */
@@ -60,6 +69,7 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
             [['is_preico'], 'integer', 'max' => 1],
             [['user_token'], 'string', 'max' => 245],
             [['amount'], 'number'],
+            [['is_company','tax_id_type','pit_transfer_form','notarial_act_city','notarial_act_day','notarial_act_hour','notarial_act_day2','notarial_act_hour2'],'safe']
         ];
     }
 
@@ -95,6 +105,14 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
             'comments' => 'Komentarz',
             'statusToDisplay' => Yii::t('db', 'Payment status'),
             'benefitWithAmount' => Yii::t('db', 'Expected return with profit'),
+            'is_company' => Yii::t('app', 'Is company'),
+            'tax_id_type' => Yii::t('app', 'Tax identifier type'),
+            'pit_transfer_form' => Yii::t('app', 'PIT transfer form'),
+            'notarial_act_city' => Yii::t('app', 'Notarial act preferred city'),
+            'notarial_act_day' => Yii::t('app', 'Notarial act preferred day'),
+            'notarial_act_hour' => Yii::t('app', 'Notarial act preferred hour'),
+            'notarial_act_day2' => Yii::t('app', 'Notarial act preferred second day'),
+            'notarial_act_hour2' => Yii::t('app', 'Notarial act preferred second day hour'),
         ];
     }
 
