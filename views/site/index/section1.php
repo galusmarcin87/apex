@@ -26,7 +26,7 @@ use app\models\mgcms\db\Setting;
                 <div class="white-box">
                     <?= MgHelpers::getSettingTypeText('HP - section 1 - text ' . Yii::$app->language, true, 'HP - section 1 - text ') ?>
                     <br/>
-                    <a href="<?= MgHelpers::getSettingTypeText('HP - section 1 - link ' . Yii::$app->language, true, '#') ?>" class="btn btn-secondary"><?= Yii::t('db', 'Find out more') ?></a>
+                    <a href="<?= MgHelpers::getSettingTypeText('HP - section 1 - link ' . Yii::$app->language, false, '#') ?>" class="btn btn-secondary"><?= Yii::t('db', 'Find out more') ?></a>
                 </div>
             </div>
         </div>
