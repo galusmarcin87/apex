@@ -73,6 +73,14 @@ $this->params['breadcrumbs'][] = $this->title;
 //        'ethereum_buy_date',
 //        'market',
         'comments',
+        'is_company',
+        'tax_id_type',
+        'pit_transfer_form',
+        'notarial_act_city',
+        'notarial_act_day',
+        'notarial_act_hour',
+        'notarial_act_day2',
+        'notarial_act_hour2',
     ];
     echo DetailView::widget([
         'model' => $model,

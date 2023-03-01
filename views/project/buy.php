@@ -1,5 +1,5 @@
 <?php
-/* @var $model app\models\mgcms\db\Project */
+/* @var $project app\models\mgcms\db\Project */
 
 /* @var $this yii\web\View */
 
@@ -15,6 +15,37 @@ $this->title = Yii::t('db', 'Invest');
 ?>
 
 <?= $this->render('/common/breadcrumps') ?>
+
+<section class="Section Project">
+    <div class="container">
+        <h1 class="text-center"><?= Yii::t('db', 'Invest') ?></h1>
+        <div class="Project__content">
+            <div class="col-md-6">
+                <h4><?= $project->name ?></h4>
+                <table>
+                    <tr>
+                        <th><?= Yii::t('db', 'Return on investment') ?> </th>
+                        <td><?= $project->percentage ?>%</td>
+                    </tr>
+                    <tr>
+                        <th><?= Yii::t('db', 'Money gathered') ?></th>
+                        <td><?= $project->money ?>$</td>
+                    </tr>
+                    <tr>
+                        <th><?= Yii::t('db', 'Goal') ?></th>
+                        <td><?= $project->money_full ?>$</td>
+                    </tr>
+                    <tr>
+                        <th><?= Yii::t('db', 'Time left') ?></th>
+                        <td><?= MgHelpers::dateDifference($project->date_crowdsale_end, date("Y-m-d H:i:s"),Yii::t('db','%a days, %h hours'))  ?></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
 <section class="Section Section--big-padding-top Contact fillAccount">
     <div class="container">
@@ -67,10 +98,10 @@ $this->title = Yii::t('db', 'Invest');
 
 
 <script>
-  $(document).ready(function () {
-    var tokenRate = <?=MgHelpers::getSetting('token rate', false, 2)?>;
-    $('#tokensToInvest').on('input', function () {
-      $('#plnToInvest').val($(this).val() * tokenRate);
+    $(document).ready(function () {
+        var tokenRate = <?=MgHelpers::getSetting('token rate', false, 2)?>;
+        $('#tokensToInvest').on('input', function () {
+            $('#plnToInvest').val($(this).val() * tokenRate);
+        });
     });
-  });
 </script>

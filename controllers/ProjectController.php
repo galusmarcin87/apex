@@ -93,10 +93,10 @@ class ProjectController extends \app\components\mgcms\MgCmsController
             ->where(['status' => Project::STATUS_ACTIVE, 'id' => $id])
             ->one();
 
-        if (!$project->public_key || !$project->private_key || !$project->przelewy24_crc || !$project->przelewy24_merchant_id) {
-            MgHelpers::setFlashError(Yii::t('db', 'Project does not have payment configured'));
-            return $this->back();
-        }
+//        if (!$project->public_key || !$project->private_key || !$project->przelewy24_crc || !$project->przelewy24_merchant_id) {
+//            MgHelpers::setFlashError(Yii::t('db', 'Project does not have payment configured'));
+//            return $this->back();
+//        }
 
         if (Yii::$app->request->post('plnToInvest')) {
             if (Yii::$app->request->post('plnToInvest') < $project->token_minimal_buy) {
@@ -188,7 +188,7 @@ class ProjectController extends \app\components\mgcms\MgCmsController
         }
 
 
-        return $this->render('buy', []);
+        return $this->render('buy', ['project' => $project]);
     }
 
     public function beforeAction($action)
