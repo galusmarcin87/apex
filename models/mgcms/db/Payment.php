@@ -64,7 +64,7 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
     {
         return [
             [['created_on', 'amountInDollars', 'ethereum_buy_date', 'market', 'comments'], 'safe'],
-            [['project_id', 'user_id', 'user_token'], 'required'],
+            [['project_id', 'user_id'], 'required'],
             [['project_id', 'user_id', 'status'], 'integer'],
             [['is_preico'], 'integer', 'max' => 1],
             [['user_token'], 'string', 'max' => 245],
