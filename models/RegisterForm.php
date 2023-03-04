@@ -68,14 +68,21 @@ class RegisterForm extends Model
         ];
     }
 
-    public function register()
+    public function register($hash)
     {
+
 
         if ($this->validate()) {
             $user = new mgcms\db\User;
             $user->username = $this->username;
             $user->password = $this->password;
             $user->role = User::ROLE_CLIENT;
+            if ($hash) {
+                $hashData = MgHelpers::decrypt($hash);
+                if (is_array($hashData) && $hashData['id']) {
+                    $user->adviser_id = $hashData['id'];
+                }
+            }
             $user->status = 1;
             $user->language = Yii::$app->language;
             $user->first_name = $this->firstName;

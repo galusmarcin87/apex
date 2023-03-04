@@ -878,12 +878,25 @@ class MgHelpers extends \yii\base\Component
 
     public static function encrypt($data)
     {
+        if(is_array($data)){
+            $data = serialize($data);
+        }
         return self::base64_url_encode(Yii::$app->getSecurity()->encryptByPassword($data, MgHelpers::getConfigParam('secretKey')));
     }
 
     public static function decrypt($hash)
     {
-        return Yii::$app->getSecurity()->decryptByPassword(self::base64_url_decode($hash), \app\components\mgcms\MgHelpers::getConfigParam('secretKey'));
+
+        $data = Yii::$app->getSecurity()->decryptByPassword(self::base64_url_decode($hash), \app\components\mgcms\MgHelpers::getConfigParam('secretKey'));
+        try{
+            $data = unserialize($data);
+        }catch (\Exception $exception){
+
+        }
+
+
+        return $data;
+
     }
 
     public static function base64_url_encode($input)

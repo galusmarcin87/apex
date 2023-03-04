@@ -35,11 +35,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     'options' => ['id' => 'myTokens'],
                 ],
                 [
-                    'label' => MgHelpers::getSettingTranslated('account_tab2', 'My data'),
+                    'label' => MgHelpers::getSettingTranslated('account_tab2', 'My clients'),
+                    'content' => $this->render('account/clients', [
+                        'user' => $model
+                    ]),
+                    'options' => ['id' => 'clients'],
+                ],
+                [
+                    'label' => MgHelpers::getSettingTranslated('account_tab3', 'My data'),
                     'content' => $this->render('account/data', [
                         'model' => $model
                     ]),
-                    'options' => ['id' => 'myAccount'],
+                    'options' => ['id' => 'data'],
                 ],
 //                [
 //                    'label' => MgHelpers::getSettingTranslated('account_tab3', 'Account settings'),

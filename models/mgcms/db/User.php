@@ -70,13 +70,17 @@ use app\components\mgcms\MgHelpers;
  * @property string $bank
  * @property string $tax_office
  * @property string $district
- *
+ * @property integer $adviser_id
+ * @property integer $project_id
+ * @property integer $additional_information
  *
  *
  * @property User $createdBy
  * @property User[] $users
+ * @property User[] $adviserUsers
  * @property Payment[] $payments
  * @property Payment[] $paymentsApproved
+ * @property Project $project
  */
 class User extends BaseUser implements IdentityInterface
 {
@@ -145,6 +149,7 @@ class User extends BaseUser implements IdentityInterface
             [['company_name', 'company_nip', 'company_regon', 'company_country', 'company_voivodeship', 'company_street', 'company_flat_no', 'company_house_no', 'company_city', 'company_postcode', 'bank_no'], 'safe'],
             [['file_text'], 'string'],
             [['bank', 'tax_office', 'district', 'county'], 'string', 'max' => 255],
+            [['adviser_id', 'additional_information', 'project_id'], 'safe'],
         ];
     }
 
@@ -159,9 +164,33 @@ class User extends BaseUser implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getAdviser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProject()
+    {
+        return $this->hasOne(Project::className(), ['id' => 'project_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getUsers()
     {
         return $this->hasMany(User::className(), ['created_by' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAdviserUsers()
+    {
+        return $this->hasMany(User::className(), ['adviser_id' => 'id']);
     }
 
     /**
@@ -462,6 +491,7 @@ class User extends BaseUser implements IdentityInterface
             'tax_office' => Yii::t('db', 'Tax office'),
             'district' => Yii::t('db', 'District'),
             'county' => Yii::t('db', 'County'),
+
         ];
     }
 }

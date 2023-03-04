@@ -19,7 +19,7 @@ use app\models\mgcms\db\User;
     {
         return [
             [['id', 'status', 'created_by'], 'integer'],
-            [['username', 'password', 'first_name', 'last_name', 'role', 'email', 'created_on', 'last_login', 'address', 'postcode', 'birthdate', 'city', 'auth_key'], 'safe'],
+            [['username', 'password', 'first_name', 'last_name', 'role', 'email', 'created_on', 'last_login', 'address', 'postcode', 'birthdate', 'city', 'auth_key','adviser_id'], 'safe'],
         ];
     }
 
@@ -62,6 +62,7 @@ use app\models\mgcms\db\User;
             'last_login' => $this->last_login,
             'created_by' => $this->created_by,
             'birthdate' => $this->birthdate,
+            'adviser_id' => $this->adviser_id,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])

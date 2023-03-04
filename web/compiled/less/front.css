@@ -54,14 +54,17 @@ li {
 .nav-tabs li a {
   color: white;
 }
-#myTokens .desc {
+#myTokens .desc,
+#clients .desc {
   padding: 5px 0;
 }
-#myTokens .kv-table-header {
+#myTokens .kv-table-header,
+#clients .kv-table-header {
   background: #64253d;
   color: white;
 }
-#myTokens .kv-table-header a {
+#myTokens .kv-table-header a,
+#clients .kv-table-header a {
   color: white;
 }
 #page_site_account .Projects--white-top {
