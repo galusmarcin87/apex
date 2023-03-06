@@ -54,6 +54,15 @@ li {
 .nav-tabs li a {
   color: white;
 }
+#myTokens table,
+#clients table {
+  font-size: 11px;
+}
+#myTokens table .select2-selection__rendered,
+#clients table .select2-selection__rendered {
+  font-size: 11px;
+  line-height: 21px;
+}
 #myTokens .desc,
 #clients .desc {
   padding: 5px 0;

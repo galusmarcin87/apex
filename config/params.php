@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'formularz@piesto.io',
+    'adminEmail' => 'm.zielinska@vertes.pl',
     'roles' => ['admin', 'front', 'team', 'project owner', 'adviser'],
     'languages' => ['pl', 'en', 'de', 'fr'],
     'languagesDisplay' => ['pl', 'en', 'de', 'fr'],
