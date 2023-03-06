@@ -1,7 +1,7 @@
 <?php
 return [
     'adminEmail' => 'formularz@piesto.io',
-    'roles' => ['admin', 'front', 'team', 'project owner'],
+    'roles' => ['admin', 'front', 'team', 'project owner', 'adviser'],
     'languages' => ['pl', 'en', 'de', 'fr'],
     'languagesDisplay' => ['pl', 'en', 'de', 'fr'],
     'icon-framework' => 'bsg',

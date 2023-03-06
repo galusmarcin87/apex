@@ -92,11 +92,13 @@ class User extends BaseUser implements IdentityInterface
     const ROLE_CLIENT = 'client';
     const ROLE_TEAM = 'team';
     const ROLE_PROJECT_OWNER = 'project owner';
+    const ROLE_ADVISER = 'adviser';
     const ROLES = [
         self::ROLE_ADMIN,
         self::ROLE_CLIENT,
         self::ROLE_TEAM,
-        self::ROLE_PROJECT_OWNER
+        self::ROLE_PROJECT_OWNER,
+        self::ROLE_ADVISER,
     ];
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;

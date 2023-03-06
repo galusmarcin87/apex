@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'content' => $this->render('account/clients', [
                         'user' => $model
                     ]),
+                    'visible'=> $model->role === \app\models\mgcms\db\User::ROLE_ADVISER,
                     'options' => ['id' => 'clients'],
                 ],
                 [
