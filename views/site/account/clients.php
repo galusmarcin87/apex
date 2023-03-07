@@ -15,8 +15,9 @@ $dataProvider = $searchModel->search($searchParams);
 
 
 <section class="Section Section--big-padding-top Contact fillAccount accountClients">
-    <div class="text-center mt-2 mb-2"><a class="btn-primary btn"
-                                     href="<?= \yii\helpers\Url::to(['/site/login', 'hash' => MgHelpers::encrypt(['id' => MgHelpers::getUserModel()->id])]) ?>"><?= Yii::t('db', 'Affiliate link') ?></a>
+    <div class="text-center mt-2 mb-2">
+        <button class="btn-primary btn" id="affiliateLink"
+                                     data-href="<?= \yii\helpers\Url::to(['/site/login', 'hash' => MgHelpers::encrypt(['id' => MgHelpers::getUserModel()->id])]) ?>"><?= Yii::t('db', 'Affiliate link') ?></button>
     </div>
 
     <div class="payment-grid">
@@ -88,6 +89,20 @@ $dataProvider = $searchModel->search($searchParams);
 </section>
 
 <script>
+    function unsecuredCopyToClipboard(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.error('Unable to copy to clipboard', err);
+        }
+        document.body.removeChild(textArea);
+    }
+
     $('.clientAdditionalInformation').change(function(){
         const matchUserId = $(this).attr("name").match(/\[(\d+)\]/);
         const matchField = $(this).attr("name").match(/\[(\w+)\]/);
@@ -102,6 +117,11 @@ $dataProvider = $searchModel->search($searchParams);
                 success: alert('<?=Yii::t('db','Saved')?>')
             });
         }
-    })
+    });
+
+    $('#affiliateLink').click(function(){
+        unsecuredCopyToClipboard($(this).attr('data-href'));
+        alert('<?=Yii::t('db','Copied to cliboard')?>');
+    });
 
 </script>
