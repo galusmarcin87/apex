@@ -269,7 +269,7 @@ class SiteController extends \app\components\mgcms\MgCmsController
         $model = new LoginForm();
         $modelRegister = new RegisterForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect('/site/account');
         }
         if ($modelRegister->load(Yii::$app->request->post()) && $modelRegister->register($hash)) {
             MgHelpers::setFlashSuccess(MgHelpers::getSettingTranslated('register_after_message', 'Thank you for registration, email with activation of account has been sent.'));
