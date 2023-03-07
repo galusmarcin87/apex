@@ -132,7 +132,7 @@ $menu2 = new NobleMenu(['name' => 'footer2_' . Yii::$app->language, 'loginLink' 
                                         class="Footer__link"
                                         target="_blank"
                                         href="https://www.vertesdesign.pl/"
-                                >Vertes Desing</a
+                                >Vertes Design</a
                                 >
                             </p>
                         </div>
