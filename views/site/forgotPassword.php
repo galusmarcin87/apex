@@ -33,7 +33,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false)
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-success" href="#"><?= Yii::t('db', 'Send'); ?><span></span>
+                    <button type="submit" class="Contact-form__submit btn btn-secondary btn-block" href="#"><?= Yii::t('db', 'Send'); ?><span></span>
                     </button>
                 </div>
 

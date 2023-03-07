@@ -73,6 +73,8 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(false);
                             class="Contact-form__submit btn btn-secondary btn-block"
                             value="<?= Yii::t('db', 'Log in') ?>"
                     />
+
+                    <?= Html::a(Yii::t('db', 'Forgotten password?'), ['site/forgot-password'], ['class' => 'Contact-form__submit btn btn-secondary btn-block']) ?>
                 </div>
                 <div class="Contact-form__other-login hidden">
                     Inne możliwośći logowania
