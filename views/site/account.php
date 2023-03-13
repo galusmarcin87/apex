@@ -27,20 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="contact__form">
             <?
             $tabsItems = [
-                [
-                    'label' => MgHelpers::getSettingTranslated('account_tab1', 'My investitions'),
-                    'content' => $this->render('account/tokensGrid', [
-                        'user' => $model
-                    ]),
-                    'options' => ['id' => 'myTokens'],
-                ],
-                [
+	                [
                     'label' => MgHelpers::getSettingTranslated('account_tab2', 'My clients'),
                     'content' => $this->render('account/clients', [
                         'user' => $model
                     ]),
                     'visible'=> $model->role === \app\models\mgcms\db\User::ROLE_ADVISER,
                     'options' => ['id' => 'clients'],
+                ],
+                [
+                    'label' => MgHelpers::getSettingTranslated('account_tab1', 'My investitions'),
+                    'content' => $this->render('account/tokensGrid', [
+                        'user' => $model
+                    ]),
+                    'options' => ['id' => 'myTokens'],
                 ],
                 [
                     'label' => MgHelpers::getSettingTranslated('account_tab3', 'My data'),
