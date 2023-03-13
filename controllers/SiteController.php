@@ -259,7 +259,7 @@ class SiteController extends \app\components\mgcms\MgCmsController
      *
      * @return Response|string
      */
-    public function actionLogin($hash = false)
+    public function actionLogin($rel = false)
     {
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -271,7 +271,7 @@ class SiteController extends \app\components\mgcms\MgCmsController
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect('/site/account');
         }
-        if ($modelRegister->load(Yii::$app->request->post()) && $modelRegister->register($hash)) {
+        if ($modelRegister->load(Yii::$app->request->post()) && $modelRegister->register($rel)) {
             MgHelpers::setFlashSuccess(MgHelpers::getSettingTranslated('register_after_message', 'Thank you for registration, email with activation of account has been sent.'));
 
             return $this->refresh();

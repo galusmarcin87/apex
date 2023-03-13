@@ -68,7 +68,7 @@ class RegisterForm extends Model
         ];
     }
 
-    public function register($hash)
+    public function register($rel)
     {
 
 
@@ -77,11 +77,8 @@ class RegisterForm extends Model
             $user->username = $this->username;
             $user->password = $this->password;
             $user->role = User::ROLE_CLIENT;
-            if ($hash) {
-                $hashData = MgHelpers::decrypt($hash);
-                if (is_array($hashData) && $hashData['id']) {
-                    $user->adviser_id = $hashData['id'];
-                }
+            if ($rel) {
+                $user->adviser_id = $rel;
             }
             $user->status = 1;
             $user->language = Yii::$app->language;

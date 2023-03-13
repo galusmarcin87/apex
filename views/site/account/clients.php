@@ -17,7 +17,7 @@ $dataProvider = $searchModel->search($searchParams);
 <section class="Section Section--big-padding-top Contact fillAccount accountClients">
     <div class="text-center mt-2 mb-2">
         <button class="btn-primary btn" id="affiliateLink"
-                                     data-href="<?= \yii\helpers\Url::to(['/site/login', 'hash' => MgHelpers::encrypt(['id' => MgHelpers::getUserModel()->id])]) ?>"><?= Yii::t('db', 'Affiliate link') ?></button>
+                                     data-href="<?= \yii\helpers\Url::to(['/site/login', 'rel' => MgHelpers::getUserModel()->id], true) ?>"><?= Yii::t('db', 'Affiliate link') ?></button>
     </div>
 
     <div class="payment-grid">
