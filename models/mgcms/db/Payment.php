@@ -93,7 +93,7 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
             'user_id' => Yii::t('app', 'User'),
             'project' => Yii::t('app', 'Project'),
             'user' => Yii::t('app', 'User'),
-            'amount' => Yii::t('db', 'Payment value'),
+            'amount' => Yii::t('db', 'Amount to invest'),
             'status' => Yii::t('app', 'Status'),
             'statusStr' => Yii::t('app', 'Status'),
             'percentage' => Yii::t('app', 'Percentage'),

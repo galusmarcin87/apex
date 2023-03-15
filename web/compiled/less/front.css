@@ -85,3 +85,13 @@ li {
 #page_site_account select.form-control {
   border: 1px solid #e1e1e1;
 }
+.krajee-datepicker {
+  font-size: 14px;
+  line-height: 60px !important;
+  color: #838383;
+  border-radius: 3px;
+  padding: 0 15px !important;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  height: auto !important;
+}
