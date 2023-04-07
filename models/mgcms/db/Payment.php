@@ -61,7 +61,7 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
      * @inheritdoc
      */
     public function rules()
-    {
+    { 
         return [
             [['created_on', 'amountInDollars', 'ethereum_buy_date', 'market', 'comments'], 'safe'],
             [['project_id', 'user_id'], 'required'],
@@ -69,7 +69,7 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
             [['is_preico'], 'integer', 'max' => 1],
             [['user_token'], 'string', 'max' => 245],
             [['amount'], 'number'],
-            [['is_company','tax_id_type','pit_transfer_form','notarial_act_city','notarial_act_day','notarial_act_hour','notarial_act_day2','notarial_act_hour2'],'safe']
+            [['is_company', 'tax_id_type', 'pit_transfer_form', 'notarial_act_city', 'notarial_act_day', 'notarial_act_hour', 'notarial_act_day2', 'notarial_act_hour2'], 'required']
         ];
     }
 
@@ -221,6 +221,6 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
                 break;
         }
 
-        return '<span class="'.$class.'">'.$label.'</span>';
+        return '<span class="' . $class . '">' . $label . '</span>';
     }
 }
