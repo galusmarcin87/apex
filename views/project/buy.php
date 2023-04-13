@@ -10,10 +10,15 @@ use yii\bootstrap\ActiveForm;
 use yii\web\View;
 
 /* @var $payment app\models\mgcms\db\Payment */
+
 /* @var $form app\components\mgcms\yii\ActiveForm */
+
 use \kartik\datecontrol\Module;
+
 $this->title = Yii::t('db', 'Invest');
 $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
+
+$buyDefaultAmount = MgHelpers::getSetting('buy default amount',false, 1000);
 
 ?>
 
@@ -54,7 +59,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
         </div>
         <div class="row mt-4">
             <div class="col-md-6">
-               <h4><?= Yii::t('db', 'Place and time of signing the notarial deed') ?></h4>
+                <h4><?= Yii::t('db', 'Place and time of signing the notarial deed') ?></h4>
                 <?= $form->field($payment, 'notarial_act_city')->textInput(['required' => true, 'placeholder' => $payment->getAttributeLabel('notarial_act_city')]) ?>
                 <?= $form->field($payment, 'notarial_act_day')->widget(\kartik\datecontrol\DateControl::classname(), [
                     'type' => \kartik\datecontrol\DateControl::FORMAT_DATE,
@@ -86,8 +91,14 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
                 <?= $form->field($payment, 'is_company')->checkbox(['placeholder' => $payment->getAttributeLabel('is_company')]) ?>
                 <?= $form->field($payment, 'tax_id_type')->radioList(['nip' => Yii::t('db', 'NIP'), 'pesel' => Yii::t('db', 'PESEL')], ['inline' => true]) ?>
 
-                <?= $form->field($payment, 'amount')->textInput(['required' => true, 'placeholder' => $payment->getAttributeLabel('amount')]) ?>
-                
+                <div class="row">
+                    <button class="btn-primary col-md-2 amountBtn" type="button" onclick="this.parentNode.querySelector('#payment-amount').stepDown()"> - </button>
+                    <?= $form->field($payment, 'amount')->textInput(['type' => 'number', 'step' => $buyDefaultAmount, 'value' => $buyDefaultAmount, 'required' => true, 'placeholder' => $payment->getAttributeLabel('amount')]) ?>
+                    <button class="btn-primary col-md-2 amountBtn" type="button" onclick="this.parentNode.querySelector('#payment-amount').stepUp()"> + </button>
+                </div>
+
+
+
                 <button type="submit" class="btn btn-primary"><?= Yii::t('db', 'Next') ?></button>
             </div>
         </div>

@@ -61,7 +61,7 @@ class Payment extends \app\models\mgcms\db\AbstractRecord
      * @inheritdoc
      */
     public function rules()
-    { 
+    {
         return [
             [['created_on', 'amountInDollars', 'ethereum_buy_date', 'market', 'comments'], 'safe'],
             [['project_id', 'user_id'], 'required'],

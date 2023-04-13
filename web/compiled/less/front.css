@@ -95,3 +95,8 @@ li {
   border: 1px solid #e1e1e1;
   height: auto !important;
 }
+.amountBtn {
+  border: none;
+  height: 62px;
+  margin-top: 20px;
+}
