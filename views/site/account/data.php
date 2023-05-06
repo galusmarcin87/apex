@@ -22,7 +22,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
             'fieldConfig' => $fieldConfig
         ]);
 
-        //          echo $form->errorSummary($model);
+        echo $form->errorSummary($model);
         ?>
         <?= MgHelpers::getSettingTypeText('my account my data text', true, '<p>my account my data text</p>') ?>
 
@@ -31,14 +31,15 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
                 <legend><?= Yii::t('db', 'Personal data') ?></legend>
                 <?= $this->render('../fillAccount/_personForm', ['form' => $form, 'model' => $model]) ?>
                 <legend class="p-3"><?= Yii::t('db', 'Addres for corespondence') ?>
-                    <button type="button" class="btn btn-primary pull-right" id="copyToCorrespondence"><?= Yii::t('db', 'Copy') ?></button>
+                    <button type="button" class="btn btn-primary pull-right"
+                            id="copyToCorrespondence"><?= Yii::t('db', 'Copy') ?></button>
                 </legend>
 
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_postcode', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_city', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_street', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_house_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_flat_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'cor_flat_no', 'required' => false, 'addOpts' => ['disabled' => false]]) ?>
             </div>
 
             <div class="col-md-6">
@@ -51,7 +52,7 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'city', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'street', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'house_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
-                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'flat_no', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
+                <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'flat_no', 'required' => false, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'voivodeship', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'county', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
                 <?= $this->render('../fillAccount/_field', ['width' => 12, 'form' => $form, 'model' => $model, 'attribute' => 'district', 'required' => true, 'addOpts' => ['disabled' => false]]) ?>
@@ -76,12 +77,13 @@ $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
 </section>
 
 <script type="text/javascript">
-    function copyToCorrespondence(){
+    function copyToCorrespondence () {
 
-        const fields = ['postcode','city','street','house_no','flat_no'];
-        fields.forEach( (field)=>{
-            $('#user-cor_'+field).val($('#user-'+field).val());
+        const fields = ['postcode', 'city', 'street', 'house_no', 'flat_no'];
+        fields.forEach((field) => {
+            $('#user-cor_' + field).val($('#user-' + field).val());
         });
     }
-    $('#copyToCorrespondence').on('click',copyToCorrespondence);
+
+    $('#copyToCorrespondence').on('click', copyToCorrespondence);
 </script>

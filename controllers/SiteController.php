@@ -357,22 +357,17 @@ class SiteController extends \app\components\mgcms\MgCmsController
     public function actionAccount($backUrl = false)
     {
 
-
-        $model = $this->getUserModel();
+        $model = User::findOne(MgHelpers::getUserModel()->id);
 
         if (!$model) {
             $this->throw404();
         }
 
-//        if ($this->getUserModel()->status != User::STATUS_VERIFIED) {
-//            return $this->redirect(['site/fill-account']);
+
+//        $model->scenario = 'account';
+//        if ($backUrl) {
+//            $model->scenario = 'kyc';
 //        }
-
-
-        $model->scenario = 'account';
-        if ($backUrl) {
-            $model->scenario = 'kyc';
-        }
 
 
         if (Yii::$app->request->post('User')) {

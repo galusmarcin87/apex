@@ -78,16 +78,7 @@ class ProjectController extends \app\components\mgcms\MgCmsController
             return $this->redirect(['site/login']);
         }
 
-        $user = MgHelpers::getUserModel();
-//        if (!$user->first_name || !$user->last_name || !$user->street || !$user->flat_no || !$user->postcode || !$user->city) {
-//            MgHelpers::setFlash(MgHelpers::FLASH_TYPE_WARNING, Yii::t('db', 'Fill your account data please first'));
-//            return $this->redirect(['site/account']);
-//        }
-//        if ($user->status != User::STATUS_VERIFIED) {
-//            MgHelpers::setFlash(MgHelpers::FLASH_TYPE_WARNING, Yii::t('db', 'You need to verify by Fiber ID, to do so go to <a href="' . Url::to('site/verify-fiber-id')) . '">Verify</a>');
-//            return $this->redirect(['site/account']);
-//        }
-
+        $user = User::findOne(MgHelpers::getUserModel()->id);
 
         $project = Project::find()
             ->where(['status' => Project::STATUS_ACTIVE, 'id' => $id])
@@ -96,7 +87,14 @@ class ProjectController extends \app\components\mgcms\MgCmsController
         $payment = new Payment();
         $payment->project_id = $project->id;
 
+        $loaded = $payment->load(Yii::$app->request->post());
+        if ($loaded) {
+            return $this->render('buy2', ['project' => $project, 'payment' => $payment, 'user' => $user]);
+        }
+
+        //--------------------------------STEP 2 ---------------------------------
         return $this->render('buy', ['project' => $project, 'payment' => $payment]);
+
     }
 
     public function beforeAction($action)
@@ -174,8 +172,6 @@ class ProjectController extends \app\components\mgcms\MgCmsController
 
         \Yii::info("post", 'own');
         \Yii::info(Yii::$app->request->post(), 'own');
-
-
 
 
         $hashDecoded = JSON::decode(MgHelpers::decrypt($hash));
@@ -336,6 +332,34 @@ class ProjectController extends \app\components\mgcms\MgCmsController
 
 
         return $this->render('buyTest');
+    }
+
+    public function actionGenerateDocument($name)
+    {
+
+        $engine = new \app\components\mgcms\docRepl\docRepl();
+        $engine->loadTemplate(Yii::getAlias('@app/web/files/' . $name . '.docx'));
+
+        $model = $this->getUserModel();
+        $data = [
+
+        ];
+
+        foreach ($model->getAttributes() as $attr => $value) {
+            $data['user_' . $attr] = $value;
+        }
+
+        $engine->replace($data);
+
+        $tempName = md5(time()) . '.docx';
+
+        $engine->save($tempName);
+
+        header('Content-Disposition: attachment; filename="'.$name.'.docx"');
+
+        echo file_get_contents($tempName);
+
+        unlink($tempName);
     }
 
 
