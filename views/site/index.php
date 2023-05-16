@@ -18,6 +18,3 @@ use app\models\mgcms\db\Project;
 
 <?= $this->render('/common/faq') ?>
 
-
-
-<?= $this->render('/common/newsletterForm') ?>
