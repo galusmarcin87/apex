@@ -8,28 +8,31 @@ use app\models\mgcms\db\Setting;
 
 ?>
 
-<section class="Section Section--light-background">
+<section class="Section Section--light-background section1hp">
     <div class="container">
         <div class="row">
             <div class="col-xl-6">
-                <div class="uppercase-header">
-                    <?= MgHelpers::getSettingTypeText('HP - section 1 - 1 header ' . Yii::$app->language, false, 'HP - section 1 - 1 header') ?>
+                <h3 class="text-center3"><?= MgHelpers::getSettingTypeText('HP - section 1 - 1 header ' . Yii::$app->language, false, 'HP - section 1 - 1 header') ?></h3>
+                <img src="<?= MgHelpers::getSettingTypeText('HP - section 1 - 1 image ' . Yii::$app->language, false, '/images/image_2.jpg') ?>"/>
+                <div class="text-center">
+                    <a class="btn btn-secondary" href="<?= MgHelpers::getSettingTypeText('HP - section 1 - 1 link', false,'#')?>"><?= MgHelpers::getSettingTypeText('HP - section 1 - 1 link label ' . Yii::$app->language,false,'HP - section 1 - 1 link label')?></a>
                 </div>
-                <h3 style="margin-bottom: 0;"><?= MgHelpers::getSettingTypeText('HP - section 1 - 2 header ' . Yii::$app->language, false, 'HP - section 1 - 2 header') ?></h3>
             </div>
             <div class="col-xl-6">
-                <img class="float-image" src="<?= MgHelpers::getSettingTypeText('HP - section 1 - image ' . Yii::$app->language, false, '/images/image_2.jpg') ?>"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-8">
-                <div class="white-box">
-                    <?= MgHelpers::getSettingTypeText('HP - section 1 - text ' . Yii::$app->language, true, 'HP - section 1 - text ') ?>
-                    <br/>
-                    <a href="<?= MgHelpers::getSettingTypeText('HP - section 1 - link ' . Yii::$app->language, false, '#') ?>" class="btn btn-secondary"><?= Yii::t('db', 'Find out more') ?></a>
+                <h3 class="text-center3"><?= MgHelpers::getSettingTypeText('HP - section 1 - 2 header ' . Yii::$app->language, false, 'HP - section 1 - 2 header') ?></h3>
+                <img src="<?= MgHelpers::getSettingTypeText('HP - section 1 - 2 image ' . Yii::$app->language, false, '/images/image_2.jpg') ?>"/>
+                <div class="text-center">
+                    <a class="btn btn-secondary" href="<?= MgHelpers::getSettingTypeText('HP - section 1 - 2 link', false,'#')?>"><?= MgHelpers::getSettingTypeText('HP - section 1 - 2 link label ' . Yii::$app->language,false,'HP - section 1 - 1 link label')?></a>
                 </div>
             </div>
+
         </div>
-    </div>
+        <div class="row mt-5">
+            <div class="col-xl-12">
+                <img class="w-100"
+                     src="<?= MgHelpers::getSettingTypeText('HP - section 2 - image ' . Yii::$app->language, false, '/images/111.jpg') ?>"
+                     alt=""/>
+            </div>
+        </div>
     </div>
 </section>

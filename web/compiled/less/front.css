@@ -28,6 +28,9 @@ li {
 #page_site_index {
   background-color: #64253d;
 }
+#page_site_index .Partners__carousel {
+  margin: 0;
+}
 .hidden {
   display: none;
 }
@@ -110,4 +113,19 @@ li {
 #page_project_buy .documents {
   padding: 20px;
   background: lightgray;
+}
+.Section.section1hp {
+  background: #64253d !important;
+  border-top: 3px solid white;
+}
+.Section.section1hp h3 {
+  color: #deb849;
+  text-align: center;
+}
+.Section.section1hp .btn-secondary {
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.goldenText {
+  color: #deb849;
 }
