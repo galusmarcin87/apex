@@ -345,6 +345,8 @@ or <b>=</b>) na początku każdej wyszukiwanej wartości.',
     'Date Crowdsale End' => 'Zbiórka do',
     'Presale bonus' => 'Bonus w %, jaki otrzyma Inwestor w przedsprzedaży',
     'Payment value' => 'Kwota zainwestowanych środków (w PLN)',
+    'Counter disabled' => 'Suwak wyłączony',
+    'project' => 'projekt',
 ];
 
 return $arr;

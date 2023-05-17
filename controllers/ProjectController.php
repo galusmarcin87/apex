@@ -28,13 +28,17 @@ use Przelewy24\Exceptions\Przelewy24Exception;
 class ProjectController extends \app\components\mgcms\MgCmsController
 {
 
-    public function actionIndex()
+    public function actionIndex($type = '', $categoryId = false)
     {
-
+        $realType = str_replace('_', ' ', $type,);
+        $query = Project::find()->where(['status' => [Project::STATUS_ACTIVE, Project::STATUS_PLANNED]])->andWhere(['type' => $realType]);
+        if($categoryId){
+            $query->andWhere(['category_id' => $categoryId]);
+        }
         $dataProvider = new ActiveDataProvider([
-            'query' => Project::find()->where(['status' => [Project::STATUS_ACTIVE, Project::STATUS_PLANNED]]),
+            'query' => $query,
             'pagination' => [
-                'pageSize' => 9,
+                'pageSize' => $realType == Project::TYPE_BUSINESS_PROFIT ? 4 : 9,
             ],
             'sort' => [
                 'defaultOrder' => [
@@ -45,6 +49,9 @@ class ProjectController extends \app\components\mgcms\MgCmsController
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'type' => $type,
+            'realType' => $realType,
+            'categoryId' => $categoryId,
         ]);
     }
 
@@ -355,7 +362,7 @@ class ProjectController extends \app\components\mgcms\MgCmsController
 
         $engine->save($tempName);
 
-        header('Content-Disposition: attachment; filename="'.$name.'.docx"');
+        header('Content-Disposition: attachment; filename="' . $name . '.docx"');
 
         echo file_get_contents($tempName);
 

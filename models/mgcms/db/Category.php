@@ -30,8 +30,10 @@ class Category extends BaseCategory
 {
 
     const TYPE_ARTICLE = 'article';
+    const TYPE_PROJECT = 'project';
     const TYPES = [
         Category::TYPE_ARTICLE,
+        Category::TYPE_PROJECT
     ];
 
     /**

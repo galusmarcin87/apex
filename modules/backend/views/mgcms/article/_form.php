@@ -37,7 +37,7 @@ use yii\bootstrap\Modal;
         <div class="col-md-3">
             <?=
             $form->field($model, 'category_id')->widget(\kartik\widgets\Select2::classname(), [
-                'data' => \yii\helpers\ArrayHelper::map(\app\models\mgcms\db\Category::find()->orderBy('id')->asArray()->all(), 'id', 'name'),
+                'data' => \yii\helpers\ArrayHelper::map(\app\models\mgcms\db\Category::find()->orderBy('id')->andWhere(['type' => \app\models\mgcms\db\Category::TYPE_ARTICLE])->asArray()->all(), 'id', 'name'),
                 'options' => ['placeholder' => Yii::t('app', 'Choose Category')],
                 'pluginOptions' => [
                     'allowClear' => true

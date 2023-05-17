@@ -7,10 +7,11 @@ use yii\helpers\Html;
 use kartik\export\ExportMenu;
 use yii\widgets\ListView;
 use app\models\mgcms\db\Project;
+use app\models\mgcms\db\Category;
 
 $this->title = Yii::t('db', 'Current projects');
 $this->params['breadcrumbs'][] = $this->title;
-
+$categories = Category::find()->where(['type' => Category::TYPE_PROJECT])->all();
 
 ?>
 
@@ -19,12 +20,24 @@ $this->params['breadcrumbs'][] = $this->title;
 <section class="Section Projects Projects--white-top">
     <div class="container">
         <div class="Projects__header__wrapper">
-            <h4 class="Projects__header text-center"><?= Yii::t('db', 'Projects') ?></h4>
+            <h4 class="Projects__header text-center"><?= \app\components\mgcms\MgHelpers::getSettingTypeText('projects header ' . $type . ' ' . Yii::$app->language, false, 'Projects Jewellery ' . $type) ?></h4>
             <div class="Select hidden">
                 <select class="Select__select">
                     <option>- sortuj w -</option>
                 </select>
             </div>
+            <? if ($realType == Project::TYPE_BUSINESS_OWNER): ?>
+                <div class="text-center projectFilters">
+                    <? foreach ($categories as $category): ?>
+                        <a class="btn btn-secondary btn-square <?= $categoryId == $category->id ? 'bold' : ''?>"
+                           href="<?= \yii\helpers\Url::to(['/project/index', 'type' => $type, 'categoryId' => $category->id]) ?>">
+                            <?= Yii::t('db', $category->name) ?>
+                        </a>
+                    <? endforeach; ?>
+                </div>
+
+
+            <? endif; ?>
         </div>
     </div>
     <div class="container">
@@ -35,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'Projects__card item'
             ],
             'options' => [
-                'class' => 'Projects__sortable',
+                'class' => 'Projects__sortable ' . $type,
             ],
             'layout' => '{items}',
             'itemView' => function ($model, $key, $index, $widget) {

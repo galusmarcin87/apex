@@ -53,17 +53,21 @@ use yii\helpers\Html;
  * @property integer $przelewy24_merchant_id
  * @property string $link
  * @property string $linkUrl
+ * @property integer $category_id
+ * @property string $type
  *
  * @property \app\models\mgcms\db\Bonus[] $bonuses
  * @property \app\models\mgcms\db\Payment[] $payments
  * @property \app\models\mgcms\db\File $file
  * @property \app\models\mgcms\db\File $flag
+ * @property \app\models\mgcms\db\Category $category
  */
 class Project extends \app\models\mgcms\db\AbstractRecord
 {
     use LanguageBehaviorTrait;
 
     public $languageAttributes = ['name', 'lead', 'text', 'text2', 'buy_token_info'];
+    public $modelAttributes = ['counterDisabled'];
     public $downloadFiles;
 
     const STATUS_ACTIVE = 1;
@@ -72,6 +76,10 @@ class Project extends \app\models\mgcms\db\AbstractRecord
     const STATUSES = [self::STATUS_ACTIVE => 'aktywny', self::STATUS_ENDED => 'zakończony', self::STATUS_PLANNED => 'zaplanowany'];
     const STATUSES_EN = [self::STATUS_ACTIVE => 'Current', self::STATUS_ENDED => 'Ended', self::STATUS_PLANNED => 'Planned'];
 
+    const TYPE_BUSINESS_OWNER = 'business owner';
+    const TYPE_BUSINESS_PROFIT = 'business profit';
+
+    const TYPES = [self::TYPE_BUSINESS_OWNER, self::TYPE_BUSINESS_PROFIT];
     /**
      * @inheritdoc
      */
@@ -81,10 +89,10 @@ class Project extends \app\models\mgcms\db\AbstractRecord
             [['name', 'file_id'], 'required'],
             [['gps_lat', 'gps_long', 'money', 'money_full', 'percentage', 'percentage_presale_bonus'], 'number'],
             [['lead', 'text', 'text2', 'buy_token_info', 'fiber_collect_id', 'iban', 'pay_description', 'pay_name', 'przelewy24_crc'], 'string'],
-            [['file_id', 'token_value', 'token_to_sale', 'token_minimal_buy', 'token_left', 'flag_id', 'created_by', 'value', 'order', 'przelewy24_merchant_id'], 'integer'],
-            [['date_presale_start', 'date_presale_end', 'date_crowdsale_start', 'date_crowdsale_end', 'date_realization_profit'], 'safe'],
+            [['file_id', 'token_value', 'token_to_sale', 'token_minimal_buy', 'token_left', 'flag_id', 'created_by', 'value', 'order', 'przelewy24_merchant_id', 'category_id'], 'integer'],
+            [['date_presale_start', 'date_presale_end', 'date_crowdsale_start', 'date_crowdsale_end', 'date_realization_profit', 'counterDisabled'], 'safe'],
             [['name', 'localization', 'whitepaper', 'www', 'token_blockchain', 'public_key', 'private_key'], 'string', 'max' => 245],
-            [['status', 'investition_time', 'token_currency'], 'string', 'max' => 45]
+            [['status', 'investition_time', 'token_currency','type'], 'string', 'max' => 45]
         ];
     }
 
@@ -140,6 +148,8 @@ class Project extends \app\models\mgcms\db\AbstractRecord
             'thumbFront' => '',
             'value' => 'Wartość inwestycji',
             'order' => Yii::t('app', 'Order'),
+            'counterDisabled' => Yii::t('app', 'Counter disabled'),
+            'category_id' => Yii::t('app', 'Category'),
         ];
     }
 
@@ -165,6 +175,14 @@ class Project extends \app\models\mgcms\db\AbstractRecord
     public function getFile()
     {
         return $this->hasOne(\app\models\mgcms\db\File::className(), ['id' => 'file_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(\app\models\mgcms\db\Category::className(), ['id' => 'category_id']);
     }
 
     /**

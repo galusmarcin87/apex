@@ -129,3 +129,25 @@ li {
 .goldenText {
   color: #deb849;
 }
+.Projects__sortable.business_profit {
+  grid-template-columns: 1fr 1fr;
+}
+.Projects__sortable.business_profit .Projects__card {
+  max-width: none;
+}
+.Projects__sortable.business_profit .Projects__card .Projects__card__image-wrapper img {
+  height: auto;
+}
+.violetBg {
+  background: #64253d;
+}
+.btn-square {
+  border-radius: 0;
+}
+.projectFilters a {
+  margin: 20px;
+  font-weight: normal;
+}
+.projectFilters a.bold {
+  font-weight: bold;
+}

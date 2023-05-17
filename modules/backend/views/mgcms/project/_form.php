@@ -184,6 +184,18 @@ yii\jui\JuiAsset::register($this);
 
         <?= $form->field4md($model, 'przelewy24_crc')->textInput(['placeholder' => '']) ?>
 
+        <?= $form->field4md($model, 'type')->dropDownList( MgHelpers::arrayKeyValueFromArray(  \app\models\mgcms\db\Project::TYPES),['prompt'=>'']) ?>
+
+        <?=
+        $form->field4md($model, 'category_id')->widget(\kartik\widgets\Select2::classname(), [
+            'data' => \yii\helpers\ArrayHelper::map(\app\models\mgcms\db\Category::find()->orderBy('id')->andWhere(['type' => \app\models\mgcms\db\Category::TYPE_PROJECT   ])->asArray()->all(), 'id', 'name'),
+            'options' => ['placeholder' => Yii::t('app', 'Choose Category')],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+
+        ?>
 
         <div class="hidden">
             <?= $form->field3md($model, 'fiber_collect_id')->textInput(['placeholder' => '']) ?>
