@@ -151,3 +151,13 @@ li {
 .projectFilters a.bold {
   font-weight: bold;
 }
+.Project__info__content {
+  float: right;
+  min-width: 500px;
+}
+.Project__content.business_profit {
+  display: block;
+}
+.Project__text {
+  grid-column: span 3;
+}
