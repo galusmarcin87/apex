@@ -18,7 +18,7 @@ use \kartik\datecontrol\Module;
 $this->title = Yii::t('db', 'Invest');
 $fieldConfig = \app\components\ProjectHelper::getFormFieldConfig(true);
 
-$buyDefaultAmount = MgHelpers::getSetting('buy default amount',false, 1000);
+$buyDefaultAmount = $project->type == \app\models\mgcms\db\Project::TYPE_BUSINESS_OWNER ? $project->value : MgHelpers::getSetting('buy default amount', false, 1000);
 
 ?>
 
@@ -92,11 +92,22 @@ $buyDefaultAmount = MgHelpers::getSetting('buy default amount',false, 1000);
                 <?= $form->field($payment, 'tax_id_type')->radioList(['nip' => Yii::t('db', 'NIP'), 'pesel' => Yii::t('db', 'PESEL')], ['inline' => true]) ?>
 
                 <div class="row">
-                    <button class="btn-primary col-md-2 amountBtn" type="button" onclick="this.parentNode.querySelector('#payment-amount').stepDown()"> - </button>
-                    <?= $form->field($payment, 'amount')->textInput(['type' => 'number', 'step' => $buyDefaultAmount, 'value' => $buyDefaultAmount, 'required' => true, 'placeholder' => $payment->getAttributeLabel('amount')]) ?>
-                    <button class="btn-primary col-md-2 amountBtn" type="button" onclick="this.parentNode.querySelector('#payment-amount').stepUp()"> + </button>
+                    <? if ($project->type == \app\models\mgcms\db\Project::TYPE_BUSINESS_PROFIT): ?>
+                        <button class="btn-primary col-md-2 amountBtn" type="button"
+                                onclick="this.parentNode.querySelector('#payment-amount').stepDown()"> -
+                        </button>
+                    <? endif ?>
+                    <?= $form->field($payment, 'amount')->textInput([
+                            'type' => 'number',
+                        'disabled' => $project->type == \app\models\mgcms\db\Project::TYPE_BUSINESS_OWNER,
+                        'step' => $buyDefaultAmount,
+                        'value' => $buyDefaultAmount, 'required' => true, 'placeholder' => $payment->getAttributeLabel('amount')]) ?>
+                    <? if ($project->type == \app\models\mgcms\db\Project::TYPE_BUSINESS_PROFIT): ?>
+                        <button class="btn-primary col-md-2 amountBtn" type="button"
+                                onclick="this.parentNode.querySelector('#payment-amount').stepUp()"> +
+                        </button>
+                    <? endif ?>
                 </div>
-
 
 
                 <button type="submit" class="btn btn-primary"><?= Yii::t('db', 'Next') ?></button>
